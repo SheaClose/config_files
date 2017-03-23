@@ -13,7 +13,7 @@ Much support from Joe as well. (https://github.com/joseph-tohdjojo)
 
 2. Populate your completion file
 
-		nano ~/.git-completion.bash
+	`nano ~/.git-completion.bash`
 
 	In the .git-completion.bash file put the contents located here:
 
@@ -22,11 +22,11 @@ Much support from Joe as well. (https://github.com/joseph-tohdjojo)
 
 	Update the permissions of the file.
 
-		[sudo] chmod 755 ~/.git-completion.bash
+	`[sudo] chmod 755 ~/.git-completion.bash`
 
 3. Populate your prompt file
 
-		nano ~/.git-prompt.sh
+	`nano ~/.git-prompt.sh`
 
 	In the .git-prompt.sh file, put the contents located here:
 
@@ -34,11 +34,11 @@ Much support from Joe as well. (https://github.com/joseph-tohdjojo)
 
 	Update the permissions of the file.
 
-		[sudo] chmod 755 ~/.git-prompt.sh
+	`[sudo] chmod 755 ~/.git-prompt.sh`
 
 4. Populate your .bash_profile
 
-		nano ~/.bash_profile
+	`nano ~/.bash_profile`
 
 	In the .bash_profile, put the contents located here:
 
@@ -61,7 +61,7 @@ Add snippets to your Atom:
 
 1. Find your Atom snippets file:
 
-		mine is located at `~/.atom/snippets.cson`
+	mine is located at `~/.atom/snippets.cson`
 
 2. Populate your snippets file with the following:
 
@@ -73,7 +73,7 @@ Add snippets to your Atom:
 
 # Default location of original files #
 
-	`# Bash
+	# Bash
 	~/.bash_profile
 
 	# Git
@@ -82,4 +82,3 @@ Add snippets to your Atom:
 
 	# Atom
 	~/.atom/snippents.cson
-	`
