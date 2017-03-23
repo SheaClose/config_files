@@ -1,12 +1,13 @@
-This tutorial was copied from here: http://neverstopbuilding.com/gitpro and was modified for my needs
+This tutorial was copied from here: http://neverstopbuilding.com/gitpro and was modified for my needs.
+
 Much support from Joe as well. (https://github.com/joseph-tohdjojo)
 
 
 1. Create the files you need
 
-	touch ~/.bash_profile
+	``touch ~/.bash_profile
 	touch ~/.git-completion.bash
-	touch ~/.git-prompt.sh
+	touch ~/.git-prompt.sh``
 
 2. Populate your completion file
 
@@ -44,13 +45,13 @@ Much support from Joe as well. (https://github.com/joseph-tohdjojo)
 
 5. Reset your terminal:
 
-`source ~/.bash_profile`
+	`source ~/.bash_profile`
 
-Now, you should have a few things going for you:
+	Now, you should have a few things going for you:
 
-Clean looking path prompt.
-Indication of the branch you are on in a Git repository.
-Bad A$$ aliases to make your workflow easier.
+	Clean looking path prompt.
+	Indication of the branch you are on in a Git repository.
+	Bad A$$ aliases to make your workflow easier.
 
 ### Black Diamond ###
 
@@ -68,7 +69,7 @@ Add snippets to your Atom:
 
 
 
-### Default location of original files ###
+```### Default location of original files ###
 
 # Bash
 ~/.bash_profile
@@ -79,3 +80,4 @@ Add snippets to your Atom:
 
 # Atom
 ~/.atom/snippents.cson
+```
