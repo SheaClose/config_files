@@ -4,6 +4,28 @@
 
    # then
    # ============================================================
+   'Anonymous Function':
+     'prefix': 'anon'
+     'body': """
+function( $1 ){
+	return
+}
+             """
+
+   'Arrow Function':
+     'prefix': 'anon'
+     'body': """
+( $1 ) => {
+	return
+}
+             """
+
+   'require':
+     'prefix': 'req'
+     'body': """
+require( "$1" )
+             """
+
 
    '.then':
      'prefix': 'then'
@@ -212,6 +234,51 @@ return $http.put("/$1", {}).then(function(response){
  '.text.html, .text.html .meta.scope.between-tag-pair, .text.html .punctuation.tag.begin':
 
 
+   'Angular Src':
+     'prefix': 'angular'
+     'body': """
+             	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+             """
+
+   'Angular UI':
+     'prefix': 'UI'
+     'body': """
+             	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+             """
+
+   'bootstrap css':
+     'prefix': 'bootstrapcss'
+     'body': """
+             	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" ></link>
+             """
+
+   'bootstrap js':
+     'prefix': 'bootstrapjs'
+     'body': """
+             	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+             """
+
+   'materialize css':
+     'prefix': 'materializecss'
+     'body': """
+             	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.css">
+             """
+
+   'materialize js':
+     'prefix': 'materializejs'
+     'body': """
+             	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.js"></script>
+
+             """
+
+   'jquery':
+     'prefix': 'jquery'
+     'body': """
+             	  <script src="https://code.jquery.com/jquery-3.2.1.js"	   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="	   crossorigin="anonymous"></script>
+             """
+
+
+
 			# Modal
 			# ============================================================
    'modal template':
@@ -241,11 +308,59 @@ return $http.put("/$1", {}).then(function(response){
  <body>
 	<!--<ui-view></ui-view>--->
 
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script> -->
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script> -->
+
 </body>
 </html>
              """
+
+   'script':
+     'prefix': 'script'
+     'body': """
+		 <script src="$1"></script>
+		 """
+
+   'button':
+     'prefix': 'button'
+     'body': """
+		 <button type="button" name="button">Submit</button>
+		 """
+
+   'div':
+     'prefix': 'div'
+     'body': """
+			<div class="">
+				$1
+			</div>
+		 """
+
+   'li':
+     'prefix': 'li'
+     'body': """
+			<li class=""> $1 </li>
+		 """
+
+   'ul':
+     'prefix': 'ul'
+     'body': """
+			<ul class="">
+				$1
+			</ul>
+		 """
+
+   'link':
+     'prefix': 'link'
+     'body': """
+			<link rel="stylesheet" href="$1/styles.css">
+		 """
+
+   'p':
+     'prefix': 'p'
+     'body': """
+			<p>
+				$1
+			</p>
+		 """
+
 
 
 			# CSS Snippets
@@ -308,4 +423,17 @@ return $http.put("/$1", {}).then(function(response){
                height: 100%;
                z-index: 99;
              }
+             """
+ # # Typescript SNIPPETS
+# # ============================================================
+ '.source.ts':
+
+   # then
+   # ============================================================
+
+   '':
+     'prefix': ''
+     'body': """
+
+
              """
