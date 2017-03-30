@@ -1,212 +1,254 @@
-# Your snippets
-#
-# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
-# expand the prefix into a larger code block with templated values.
-#
-# You can create a new snippet in this file by typing "snip" and then hitting
-# tab.
-#
-# An example CoffeeScript snippet to expand log to console.log:
-#
-# '.source.coffee':
-#   'Console log':
-#     'prefix': 'log'
-#     'body': 'console.log $1'
-#
-# Each scope (e.g. '.source.coffee' above) can only be declared once.
-#
-# This file uses CoffeeScript Object Notation (CSON).
-# If you are unfamiliar with CSON, you can read more about it in the
-# Atom Flight Manual:
-# https://atom.io/docs/latest/using-atom-basic-customization#cson
-
-# JAVASCRIPT SNIPPETS
-# ============================================================
-'.source.js':
-
-  # PROMISE SNIPPETS
-  # ============================================================
-
-  '.then':
-    'prefix': 'then'
-    'body': """
-            .then(function(response) {
-              $1
-            })
-            """
-
-
-
-  '.catch':
-    'prefix': 'catch'
-    'body': """
-            .catch(function(err) {
-              $1
-            })
-            """
-
-
-
-
-
-  # EXPRESS SERVER SNIPPET
-  # ============================================================
-
-  'Express Server':
-    'prefix': 'express'
-    'body': """
-            /*------------------------------------*\\\\
-              #VENDOR DEPENDENCIES
-            \\\\*------------------------------------*/
-            const express = require('express')
-            const cors = require('cors')
-            const bodyParser = require('body-parser')
-            /*------------------------------------*\\\\
-              #VARIABLES
-            \\\\*------------------------------------*/
-            const port = 8080
-            /*------------------------------------*\\\\
-              #INITIALIZE APP
-            \\\\*------------------------------------*/
-            const app = express()
-            /*------------------------------------*\\\\
-              #INITIALIZE APP
-            \\\\*------------------------------------*/
-            app.use(cors())
-            app.use(bodyParser.json())
-            /*------------------------------------*\\\\
-              #LISTEN
-            \\\\*------------------------------------*/
-            app.listen(port, function() {
-              console.log('Server listening on port', port)
-            })
-            """
-
-
-
-  'Endpoints':
-    'prefix': 'end'
-    'body': """
-            /*------------------------------------*\\\\
-              #${1:MODEL} ENDPOINTS
-            \\\\*------------------------------------*/
-            app.get('/${2:model}', ${3:model}Ctrl.read)
-            app.post('/${2:model}', ${3:model}Ctrl.create)
-            app.put('/${2:model}/:id', ${3:model}Ctrl.update)
-            app.delete('/${2:model}/:id', ${3:model}Ctrl.delete)
-            $4
-            """
-
-  # WEBPACK SNIPPETS
-  # ============================================================
-  'Webpack':
-    'prefix': 'webpack'
-    'body': """
-            const path = require('path')
-            const merge = require('webpack-merge')
-            const parts = require('./webpack.parts.js') // Create this file
-            const PATHS = {
-              app: path.join(__dirname, 'src'),
-              build: path.join(__dirname, 'public', 'build'),
-            }
-            const commonConfig = merge([
-              {
-                entry: {
-                  app: PATHS.app,
-                },
-                output: {
-                  path: PATHS.build,
-                  publicPath: '/build/',
-                  filename: '[name].js',
-                },
-              },
-            ])
-            const productionConfig = merge([
-              parts.minifyJavaScript({ useSourceMap: true }),
-            ])
-            const developmentConfig = merge([
-            ])
-            module.exports = function(env) {
-              return env === 'production'
-                ? merge(commonConfig, productionConfig)
-                : merge(commonConfig, developmentConfig)
-            }
-            """
-
-
-
-
-  # HTML SNIPPETS
-# ============================================================
-'.text.html, .text.html .meta.scope.between-tag-pair, .text.html .punctuation.tag.begin':
-
-
-
-  'modal template':
-    'prefix': 'modal'
-    'body': """
-            <div class="overlay">
-            </div>
-            <div class="fade"></div>
-            """
-
-
-
-  'HTML Boilerplate':
-    'prefix': 'html'
-    'body': """
-            <!DOCTYPE html>
-            <html>
-              <head>
-                <meta charset="utf-8">
-                <!-- Uncomment this to reload favicon -->
-                <!-- <link rel="shortcut icon" href="./favicon.ico?v=1"> -->
-            		<!-- Mobile Specific Metas ------------------------------------------------>
-            		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-                <title>$1</title>
-              </head>
-              <body>
-                $2
-              </body>
-            </html>
-            """
-
-
-# CSS SNIPPETS
-# ============================================================
-'.source.css':
-  'modal classes':
-    'prefix': 'modal'
-    'body': """
-            /*------------------------------------*\\\\
-              #MODAL OVERLAY
-            \\\\*------------------------------------*/
-            .overlay {
-              color: black;
-              position: fixed
-              top: 50%
-              left: 50%
-              transform: translate(-50%, -50%)
-              padding: 25px;
-              background-color: #ffffff;
-              z-index: 100;
-              overflow: auto;
-              border-radius: 3px;
-              border: 1px solid #C0C3C5;
-            }
-            /*------------------------------------*\\\\
-              #MODAL FADE
-            \\\\*------------------------------------*/
-            .fade {
-              position: fixed;
-              left: 0%;
-              top: 0%;
-              background-color: black;
-              -moz-opacity: 0.7;
-              opacity: .70;
-              filter: alpha(opacity=70);
-              width: 100%;
-              height: 100%;
-              z-index: 99;
-            }
-            """
+# # JAVASCRIPT SNIPPETS
+# # ============================================================
+ '.source.js':
+   # PROMISE SNIPPETS
+   # ============================================================
+   '.then':
+     'prefix': 'then'
+     'body': """
+             .then((response) => {
+               $1
+             })
+             """
+   '.catch':
+     'prefix': 'catch'
+     'body': """
+             .catch((response) => {
+               $1
+             })
+             """
+   # EXPRESS SERVER SNIPPET
+   # ============================================================
+   'Express Server':
+     'prefix': 'express'
+     'body': """
+const   express = require('express')
+                , cors = require('cors')
+                , bodyParser = require('body-parser')
+                , port = 3000
+                , app = express()
+//              , serverConfig = require("./serverConfig")
+//              , session = require("express-session")
+// app.use(session(serverConfig.session) );
+app.use(cors())
+app.use(bodyParser.json())
+app.use("/", express.static(__dirname + '/public'));
+app.listen(port, function() {
+  console.log('Server listening on port', port)
+})
+"""
+   'Endpoints':
+     'prefix': 'end'
+     'body': """
+             app.get('/${2:model}', ${3:model}Ctrl.read)
+             app.post('/${2:model}', ${3:model}Ctrl.create)
+             app.put('/${2:model}/:id', ${3:model}Ctrl.update)
+             app.delete('/${2:model}/:id', ${3:model}Ctrl.delete)
+             $4
+             """
+         # ANGULAR SNIPPETS
+       # ============================================================
+       'ngApp' :
+         'prefix': 'ngApp'
+         'body': """
+                 angular.module("app", [])
+                 """
+         # ngApp w/ route
+            'ngRoute' :
+         'prefix': 'ngRoute'
+         'body': """
+angular.module("app", ['ui.router'])
+.config( ( $stateProvider, $urlRouterProvider ) => {
+    /* Set home route */
+    $urlRouterProvider.otherwise( "/" );
+    $stateProvider
+    .state( "", {
+            url: "/"
+        , templateUrl: ``
+        , controller :
+    } )
+} )
+                 """
+            #ngController
+            'ngController' :
+         'prefix': 'ngController'
+         'body': """
+angular.module("app").controller("Ctrl", function($scope){
+    $scope.test = "Get to tha Choppa!"
+})
+                 """
+            #ngService
+            'ngService' :
+         'prefix': 'ngService'
+         'body': """
+angular.module("app").service("Service", function($http){
+    this.test = "Service Test"
+})
+                 """
+            #ngDirective
+            'ngDirective' :
+         'prefix': 'ngDirective'
+         'body': """
+angular.module("app").directive("Directive", function() {
+  return {
+     template: ""
+    , scope: {
+    }
+        , controller: function($scope){
+        }
+        , link: function(scope, element, attrs) {
+        }
+  }
+})
+                 """
+            #ngComponent
+            'ngComponent' :
+         'prefix': 'ngComponent'
+         'body': """
+angular.module('app').component('Component', {
+  templateUrl: '',
+  controller: ,
+  bindings: {
+  }
+});
+                 """
+            #ngFactory
+            'ngFactory' :
+         'prefix': 'ngFactory'
+         'body': """
+angular.module("app").factory("Factory", function($http){
+    return {
+        test: "Factory Test"
+    }
+})
+                 """
+            #$http.get
+            'http.get' :
+         'prefix': 'http.get'
+         'body': """
+return $http.get("/").then(function(response){
+    // console.log(response);
+    return response;
+})
+                 """
+            #http.post
+            'http.post' :
+         'prefix': 'http.post'
+         'body': """
+return $http.post("/", {}).then(function(response){
+    // console.log(response);
+    return response;
+})
+                 """
+            #http.put
+            'http.put' :
+         'prefix': 'http.put'
+         'body': """
+return $http.put("/", {}).then(function(response){
+    // console.log(response);
+    return response;
+})
+                 """
+   # REACT SNIPPETS
+   # ============================================================
+   'Webpack':
+     'prefix': 'webpack'
+     'body': """
+             const path = require('path')
+             const merge = require('webpack-merge')
+             const parts = require('./webpack.parts.js') // Create this file
+             const PATHS = {
+               app: path.join(__dirname, 'src'),
+               build: path.join(__dirname, 'public', 'build'),
+             }
+             const commonConfig = merge([
+               {
+                 entry: {
+                   app: PATHS.app,
+                 },
+                 output: {
+                   path: PATHS.build,
+                   publicPath: '/build/',
+                   filename: '[name].js',
+                 },
+               },
+             ])
+             const productionConfig = merge([
+               parts.minifyJavaScript({ useSourceMap: true }),
+             ])
+             const developmentConfig = merge([
+             ])
+             module.exports = function(env) {
+               return env === 'production'
+                 ? merge(commonConfig, productionConfig)
+                 : merge(commonConfig, developmentConfig)
+             }
+             """
+   # HTML SNIPPETS
+ # ============================================================
+ '.text.html, .text.html .meta.scope.between-tag-pair, .text.html .punctuation.tag.begin':
+   'modal template':
+     'prefix': 'modal'
+     'body': """
+             <div class="overlay">
+             </div>
+             <div class="fade"></div>
+             """
+   'HTML Boilerplate':
+     'prefix': 'html'
+     'body': """
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+      <!-- Uncomment this to reload favicon -->
+      <!-- <link rel="shortcut icon" href="./favicon.ico?v=1"> -->
+            <!-- Mobile Specific Metas ------------------------------------------------>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, ser-scalable=no" />
+   <title>$1</title>
+ </head>
+ <body>
+    <ui-view></ui-view>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script> -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script> -->
+</body>
+</html>
+             """
+ # CSS SNIPPETS
+ # ============================================================
+ '.source.css':
+   'modal classes':
+     'prefix': 'modal'
+     'body': """
+             /*------------------------------------*\\\\
+               #MODAL OVERLAY
+             \\\\*------------------------------------*/
+             .overlay {
+               color: black;
+               position: fixed
+               top: 50%
+               left: 50%
+               transform: translate(-50%, -50%)
+               padding: 25px;
+               background-color: #ffffff;
+               z-index: 100;
+               overflow: auto;
+               border-radius: 3px;
+               border: 1px solid #C0C3C5;
+             }
+             /*------------------------------------*\\\\
+               #MODAL FADE
+             \\\\*------------------------------------*/
+             .fade {
+               position: fixed;
+               left: 0%;
+               top: 0%;
+               background-color: black;
+               -moz-opacity: 0.7;
+               opacity: .70;
+               filter: alpha(opacity=70);
+               width: 100%;
+               height: 100%;
+               z-index: 99;
+             }
+             """
