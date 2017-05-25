@@ -1,6 +1,10 @@
+eval $(thefuck --alias)
+# You can use whatever you want as an alias, like for Mondays:
+eval $(thefuck --alias FUCK)
 alias f='open -a Finder ./'
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
+alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
 
 #################################
 # Colors                        #
@@ -71,6 +75,12 @@ mkcd () {
   cd $1
 }
 
+newdir () {
+  mkdir $1
+  cd $1
+  touch index.html src.js style.css
+}
+
 cdl () {
   cd $1
   ls
@@ -109,8 +119,22 @@ alias gs='git status'
 alias ga='git add -A'
 alias gcm='git commit -m'
 alias gp='git push'
-alias gpom="git push origin master"
+alias gpom="git pull origin master"
 
 # Reload .bash_profile
 alias prof="atom ~/.bash_profile"
+alias reprof=". ~/.bash_profile"
+alias pgdb="sudo -u postgres SheaClose"
 alias src="source ~/.bash_profile"
+
+alias karan="cdl ~/devmtn/Mentor/Students/karan"
+alias luckacin="cdl ~/devmtn/Mentor/Students/luckacin"
+alias yi="cdl ~/devmtn/Mentor/Students/yi"
+alias brobbie="cdl ~/devmtn/Mentor/Students/brobbie"
+alias terry="cdl ~/devmtn/Mentor/Students/terry"
+alias garrett = "cdl ~/devmtn/Mentor/Students/garret"
+alias drew = "cdl ~/devmtn/Mentor/Students/drewDisher"
+alias ryan = "cdl ~/devmtn/Mentor/Students/ryanGodwin"
+alias vatekah = "cdl ~/devmtn/Mentor/Students/vatekah"
+
+alias snippets="atom /Users/SheaClose/.atom/snippets.cson"
