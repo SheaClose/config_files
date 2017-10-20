@@ -1,439 +1,595 @@
- # # JAVASCRIPT SNIPPETS
-# # ============================================================
- '.source.js':
-
-   # then
-   # ============================================================
-   'Anonymous Function':
-     'prefix': 'anon'
-     'body': """
-function( $1 ){
-	return
-}
-             """
-
-   'Arrow Function':
-     'prefix': 'anon'
-     'body': """
-( $1 ) => {
-	return
-}
-             """
-
-   'require':
-     'prefix': 'req'
-     'body': """
-require( "$1" )
-             """
-
-
-   '.then':
-     'prefix': 'then'
-     'body': """
-             .then((response) => {
-               $1
-             })
-             """
-
-
-			# catch
-			# ============================================================
-   '.catch':
-     'prefix': 'catch'
-     'body': """
-             .catch((response) => {
-               $1
-             })
-             """
-
-
-   # EXPRESS SERVER SNIPPET
-   # ============================================================
-
-   'Express Server':
-     'prefix': 'express'
-     'body': """
-const   express = require('express')
- 				, cors = require('cors')
- 				, bodyParser = require('body-parser')
- 				, port = 3000
- 				, app = express()
-//				, serverConfig = require("./serverConfig")
-//				, session = require("express-session")
-
-// app.use(session(serverConfig.session) );
-app.use(cors())
-app.use(bodyParser.json())
-app.use("/", express.static(__dirname + '/public'));
-
-
-
-app.listen(port, function() {
-  console.log('Server listening on port', port)
-})
-"""
-
-
-			# End points
-			# ============================================================
-   'Endpoints':
-     'prefix': 'end'
-     'body': """
-             app.get('/${2:model}', ${3:model}Ctrl.read)
-             app.post('/${2:model}', ${3:model}Ctrl.create)
-             app.put('/${2:model}/:id', ${3:model}Ctrl.update)
-             app.delete('/${2:model}/:id', ${3:model}Ctrl.delete)
-             $4
-             """
-
-		 # ANGULAR SNIPPETS
-	   # ============================================================
-
-	   'ngApp' :
-	     'prefix': 'ngApp'
-	     'body': """
-	             angular.module("$1", [])
-	             """
-
-
-			# ngApp w/ Router
-			# ============================================================
-			'ngRoute' :
- 	     'prefix': 'ngRoute'
- 	     'body': """
-angular.module("app", ['ui.router'])
-.config( ( $stateProvider, $urlRouterProvider ) => {
-
-	/* Set home route */
-	$urlRouterProvider.otherwise( "/" );
-	$stateProvider
-	.state( "$1", {
-			url: "/$1"
-		, templateUrl: `./$1Tmpl.html`
-		, controller : $1Ctrl
-	} )
-} )
- 	             """
-
-			# uiState
-	    # ============================================================
-
-			'uiState' :
- 	     'prefix': 'uiState'
- 	     'body': """
-.state( "$1", {
-		url: "/$1"
-	, templateUrl: `./$1Tmpl.html`
-	, controller : $1Ctrl
-} )
- 	             """
-
-
-
-			# ngController
-			# ============================================================
-			'ngController' :
- 	     'prefix': 'ngController'
- 	     'body': """
-angular.module("app").controller("$1Ctrl", function($scope){
-	$scope.test = "Get to tha Choppa!"
-})
- 	             """
-
-			# ngService
-			# ============================================================
-			'ngService' :
- 	     'prefix': 'ngService'
- 	     'body': """
-angular.module("app").service("$1Service", function($http){
-	this.test = "Service Test"
-})
- 	             """
-
-			# ngDirective
-			# ============================================================
-			'ngDirective' :
- 	     'prefix': 'ngDirective'
- 	     'body': """
-angular.module("app").directive("$1Directive", function() {
-  return {
-     template: ""
-    , scope: {
-    }
-		, controller: function($scope){
-
-		}
-		, link: function(scope, element, attrs) {
-
-		}
-  }
-})
- 	             """
-
-			# ngComponent
-			# ============================================================
-			'ngComponent' :
- 	     'prefix': 'ngComponent'
- 	     'body': """
-angular.module('app').component('$1Component', {
-  templateUrl: '',
-  controller: ,
-  bindings: {
-  }
-});
- 	             """
-
-
-
-
-			# ngFactory
-			# ============================================================
-			'ngFactory' :
- 	     'prefix': 'ngFactory'
- 	     'body': """
-angular.module("app").factory("$1Factory", function($http){
-	return {
-		test: "Factory Test"
-	}
-})
- 	             """
-
-			# $http.get
-			# ============================================================
-			'http.get' :
- 	     'prefix': 'http.get'
- 	     'body': """
-return $http.get("/$1").then(function(response){
-	// console.log(response);
-	return response;
-})
- 	             """
-			# $http.post
-			# ============================================================
-			'http.post' :
- 	     'prefix': 'http.post'
- 	     'body': """
-return $http.post("/$1", {}).then(function(response){
-	// console.log(response);
-	return response;
-})
- 	             """
-			# $http.put
-			# ============================================================
-			'http.put' :
- 	     'prefix': 'http.put'
- 	     'body': """
-return $http.put("/$1", {}).then(function(response){
-	// console.log(response);
-	return response;
-})
- 	             """
-
-					# $http.get
-					# ============================================================
- '.text.html, .text.html .meta.scope.between-tag-pair, .text.html .punctuation.tag.begin':
-
-
-   'Angular Src':
-     'prefix': 'angular'
-     'body': """
-             	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
-             """
-
-   'Angular UI':
-     'prefix': 'UI'
-     'body': """
-             	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
-             """
-
-   'bootstrap css':
-     'prefix': 'bootstrapcss'
-     'body': """
-             	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" ></link>
-             """
-
-   'bootstrap js':
-     'prefix': 'bootstrapjs'
-     'body': """
-             	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-             """
-
-   'materialize css':
-     'prefix': 'materializecss'
-     'body': """
-             	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.css">
-             """
-
-   'materialize js':
-     'prefix': 'materializejs'
-     'body': """
-             	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.js"></script>
-
-             """
-
-   'jquery':
-     'prefix': 'jquery'
-     'body': """
-             	  <script src="https://code.jquery.com/jquery-3.2.1.js"	   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="	   crossorigin="anonymous"></script>
-             """
-
-
-
-			# Modal
-			# ============================================================
-   'modal template':
-     'prefix': 'modal'
-     'body': """
-             <div class="overlay">
-             </div>
-             <div class="fade"></div>
-             """
-
-
-			# HTML Boilerplate
-			# ============================================================
-   'HTML Boilerplate':
-     'prefix': 'html'
-     'body': """
-<!DOCTYPE html>
-<html>
- <head>
-   <meta charset="utf-8">
-      <!-- Uncomment this to reload favicon -->
-      <!-- <link rel="shortcut icon" href="./favicon.ico?v=1"> -->
- 			<!-- Mobile Specific Metas ------------------------------------------------>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, ser-scalable=no" />
-   <title>$1</title>
- </head>
- <body>
-	<!--<ui-view></ui-view>--->
-
-
-</body>
-</html>
-             """
-
-   'script':
-     'prefix': 'script'
-     'body': """
-		 <script src="$1"></script>
-		 """
-
-   'button':
-     'prefix': 'button'
-     'body': """
-		 <button type="button" name="button">Submit</button>
-		 """
-
-   'div':
-     'prefix': 'div'
-     'body': """
-			<div class="">
-				$1
-			</div>
-		 """
-
-   'li':
-     'prefix': 'li'
-     'body': """
-			<li class=""> $1 </li>
-		 """
-
-   'ul':
-     'prefix': 'ul'
-     'body': """
-			<ul class="">
-				$1
-			</ul>
-		 """
-
-   'link':
-     'prefix': 'link'
-     'body': """
-			<link rel="stylesheet" href="$1/styles.css">
-		 """
-
-   'p':
-     'prefix': 'p'
-     'body': """
-			<p>
-				$1
-			</p>
-		 """
-
-
-
-			# CSS Snippets
-			# ============================================================
- '.source.css':
-   'modal classes':
-     'prefix': 'modal'
-     'body': """
-             /*------------------------------------*\\\\
-               #MODAL OVERLAY
-               #MODAL OVERLAY
-               #MODAL OVERLAY
-               #MODAL OVERLAY
-               #MODAL OVERLAY
-               #MODAL OVERLAY
-               #MODAL OVERLAY
-               #MODAL OVERLAY
-               #MODAL OVERLAY
-             \\\\*------------------------------------*/
-             .overlay {
-               color: black;
-               position: fixed
-               top: 50%
-               left: 50%
-               transform: translate(-50%, -50%)
-               padding: 25px;
-               background-color: #ffffff;
-               background-color: #ffffff;
-               background-color: #ffffff;
-               background-color: #ffffff;
-               background-color: #ffffff;
-               background-color: #ffffff;
-               background-color: #ffffff;
-               background-color: #ffffff;
-               background-color: #ffffff;
-               z-index: 100;
-               overflow: auto;
-               border-radius: 3px;
-               border: 1px solid #C0C3C5;
-               border: 1px solid #C0C3C5;
-               border: 1px solid #C0C3C5;
-               border: 1px solid #C0C3C5;
-               border: 1px solid #C0C3C5;
-               border: 1px solid #C0C3C5;
-               border: 1px solid #C0C3C5;
-               border: 1px solid #C0C3C5;
-             }
-             /*------------------------------------*\\\\
-               #MODAL FADE
-             \\\\*------------------------------------*/
-             .fade {
-               position: fixed;
-               left: 0%;
-               top: 0%;
-               background-color: black;
-               -moz-opacity: 0.7;
-               opacity: .70;
-               filter: alpha(opacity=70);
-               width: 100%;
-               height: 100%;
-               z-index: 99;
-             }
-             """
- # # Typescript SNIPPETS
-# # ============================================================
- '.source.ts':
-
-   # then
-   # ============================================================
-
-   '':
-     'prefix': ''
-     'body': """
-
-
-             """
+################################################################################
+##			  													JSX       															  ##
+################################################################################
+  '.source.jsx, .source.ts':
+    'log':
+      'prefix': 'log'
+      'body': """
+      console.log($1)
+      """
+    'div':
+      'prefix': 'div'
+      'body': """
+      <div className="">
+        $1
+      </div>
+      """
+    'h1':
+      'prefix': 'h1'
+      'body': """
+      <h1>
+        $1
+      </h1>
+      """
+    'component':
+      'prefix': 'component'
+      'body': """
+              import React , { Component } from 'react';
+              //import './.css';
+
+              export default class $1 extends Component {
+                constructor(props){
+                  super(props)
+                  this.state = {
+
+                  }
+                }
+                render(){
+                  return (
+                    <div className="">
+                      $1
+                    </div>
+                  )
+                }
+              }
+              """
+    'input':
+      'prefix': 'input'
+      'body': """
+              <input>$1</input>
+                   """
+    'span':
+      'prefix': 'span'
+      'body': """
+              <span>$1</span>
+                   """
+    'image':
+      'prefix': 'img'
+      'body': """
+              <img src="$1"/>
+                   """
+    'textarea':
+      'prefix': 'textarea'
+      'body': """
+              <textarea>$1</textarea>
+                   """
+    'p':
+      'prefix': 'p'
+      'body': """
+              <p>$1</p>
+                   """
+    'ul':
+      'prefix': 'ul'
+      'body': """
+              <ul>
+                      $1
+                    </ul>
+                   """
+    'li':
+      'prefix': 'li'
+      'body': """
+              <li>$1</li>
+                   """
+    'button':
+      'prefix': 'button'
+      'body': """
+              <button type="button">$1</button>
+                   """
+
+    'Arrow Function':
+      'prefix': 'anon'
+      'body': """
+              ( $1 ) => {
+              	return
+              }
+                           """
+
+    'require':
+      'prefix': 'req'
+      'body': '
+const $1 = require( "$2" )
+             '
+
+
+    '.then':
+      'prefix': 'then'
+      'body': """
+              .then((response) => {
+                console.log(response);
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+              """
+
+    'connect':
+      'prefix': 'connect'
+      'body': """
+              import { connect } from 'react-redux';
+              """
+
+    'mapStateToProps':
+      'prefix': 'mapStateToProps'
+      'body': """
+              function mapStateToProps(state){
+                return state;
+              }
+              """
+
+################################################################################
+##			  													JavaScript															  ##
+################################################################################
+  '.source.js':
+
+    '200':
+      'prefix': '200'
+      'body': """
+              res.status(200).json($1)
+                           """
+    '500':
+      'prefix': '500'
+      'body': """
+              res.status(500).json($1)
+                           """
+    'Anonymous Function':
+      'prefix': 'anon'
+      'body': """
+              function( $1 ){
+              	return
+              }
+                           """
+    'log':
+      'prefix': 'log'
+      'body': """
+      console.log($1)
+      """
+    'db':
+      'prefix': 'db'
+      'body': """
+              db = req.app.get('db');
+                           """
+
+    'Arrow Function':
+      'prefix': 'anon'
+      'body': """
+              ( $1 ) => {
+              	return
+              }
+                           """
+
+    'require':
+      'prefix': 'req'
+      'body': '
+const $1 = require( "$2" )
+             '
+
+
+    '.then':
+      'prefix': 'then'
+      'body': """
+              then((response) => {
+                console.log(response);
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+              """
+
+
+    # catch
+    # ============================================================
+    '.catch':
+      'prefix': 'catch'
+      'body': """
+              catch((err) => {
+                $1
+              })
+              """
+
+
+    # EXPRESS SERVER SNIPPET
+    # ============================================================
+
+    'Express Server':
+      'prefix': 'express'
+      'body': """
+              const   express = require('express')
+               				, cors = require('cors')
+               				, bodyParser = require('body-parser')
+               				, port = 3000
+               				, app = express()
+              //				, serverConfig = require("./serverConfig")
+              //				, session = require("express-session")
+
+              // app.use(session(serverConfig.session) );
+              app.use(cors())
+              app.use(bodyParser.json())
+              app.use("/", express.static(__dirname + '/public'));
+
+
+
+              app.listen(port, function() {
+                console.log('Server listening on port', port)
+              })
+              """
+
+
+    # End points
+    # ============================================================
+    'Endpoints':
+      'prefix': 'end'
+      'body': """
+              app.get('/$1', $2Ctrl.read)
+              app.post('/$3', $2Ctrl.create)
+              app.put('/$5/:id', $2Ctrl.update)
+              app.delete('/$7/:id', $2Ctrl.delete)
+              $9
+              """
+
+    # ANGULAR SNIPPETS
+      # ============================================================
+
+      'ngApp' :
+        'prefix': 'ngApp'
+        'body': """
+                angular.module("$1", [])
+                """
+
+
+    # ngApp w/ Router
+    # ============================================================
+    'ngRoute' :
+      'prefix': 'ngRoute'
+      'body': """
+              angular.module("app", ['ui.router'])
+              .config( ( $stateProvider, $urlRouterProvider ) => {
+
+              	/* Set home route */
+              	$urlRouterProvider.otherwise( "/" );
+              	$stateProvider
+              	.state( "$1", {
+              			url: "/$2"
+              		, templateUrl: `./$3Tmpl.html`
+              		, controller : $4Ctrl
+              	} )
+              } )
+               	             """
+
+    # uiState
+      # ============================================================
+
+    'uiState' :
+      'prefix': 'uiState'
+      'body': """
+              .state( "$1", {
+              		url: "/$2"
+              	, templateUrl: `./$3Tmpl.html`
+              	, controller : $4Ctrl
+              } )
+               	             """
+
+
+
+    # ngController
+    # ============================================================
+    'ngController' :
+      'prefix': 'ngController'
+      'body': """
+              angular.module("app").controller("$1Ctrl", function($scope){
+              	$scope.test = "Get to tha Choppa!"
+              })
+               	             """
+
+    # ngService
+    # ============================================================
+    'ngService' :
+      'prefix': 'ngService'
+      'body': """
+              angular.module("app").service("$1Service", function($http){
+              	this.test = "Service Test"
+              })
+               	             """
+
+    # ngDirective
+    # ============================================================
+    'ngDirective' :
+      'prefix': 'ngDirective'
+      'body': """
+              angular.module("app").directive("$1Directive", function() {
+                return {
+                   template: ""
+                  , scope: {
+                  }
+              		, controller: function($scope){
+
+              		}
+              		, link: function(scope, element, attrs) {
+
+              		}
+                }
+              })
+               	             """
+
+    # ngComponent
+    # ============================================================
+    'ngComponent' :
+      'prefix': 'ngComponent'
+      'body': """
+              angular.module('app').component('$1Component', {
+                templateUrl: '$2',
+                controller: $3,
+                bindings: {
+                  $4
+                }
+              });
+               	             """
+
+
+
+
+    # ngFactory
+    # ============================================================
+    'ngFactory' :
+      'prefix': 'ngFactory'
+      'body': """
+              angular.module("app").factory("$1Factory", function($http){
+              	return {
+              		test: "Factory Test"
+              	}
+              })
+               	             """
+
+    # $http.get
+    # ============================================================
+    'http.get' :
+      'prefix': 'http.get'
+      'body': """
+              return $http.get("/$1").then(function(response){
+              	// console.log(response);
+              	return response;
+              })
+               	             """
+    # $http.post
+    # ============================================================
+    'http.post' :
+      'prefix': 'http.post'
+      'body': """
+              return $http.post("/$1", {}).then(function(response){
+              	// console.log(response);
+              	return response;
+              })
+               	             """
+    # $http.put
+    # ============================================================
+    'http.put' :
+      'prefix': 'http.put'
+      'body': """
+              return $http.put("/$1", {}).then(function(response){
+              	// console.log(response);
+              	return response;
+              })
+               	             """
+
+################################################################################
+##			  													HTML																		  ##
+################################################################################
+
+  '.text.html, .text.html .meta.scope.between-tag-pair, .text.html .punctuation.tag.begin':
+
+  #######################
+                    ## Links and Scripts ##
+                    #######################
+    'Angular Src':
+      'prefix': 'angular'
+      'body': """
+              	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+              """
+    'script src':
+      'prefix': 'scriptsrc'
+      'body': """
+              	<script src="$1"></script>
+              """
+    'Vue Src':
+      'prefix': 'vue'
+      'body': """
+              	<script src="https://unpkg.com/vue"></script>
+              """
+
+    'Angular UI':
+      'prefix': 'uirouter'
+      'body': """
+              	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+              """
+    'App Script':
+      'prefix': 'ngScript'
+      'body': """
+              	<script src="app.js"></script>
+              """
+
+    'bootstrap css':
+      'prefix': 'bootstrapcss'
+      'body': """
+              	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" ></link>
+              """
+
+    'bootstrap js':
+      'prefix': 'bootstrapjs'
+      'body': """
+              	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+              """
+
+    'materialize css':
+      'prefix': 'materializecss'
+      'body': """
+              	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.css">
+              """
+
+    'materialize js':
+      'prefix': 'materializejs'
+      'body': """
+              	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.js"></script>
+
+              """
+
+    'jquery':
+      'prefix': 'jquery'
+      'body': """
+              	  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+              """
+
+
+
+# Modal
+# ============================================================
+    'modal template':
+      'prefix': 'modal'
+      'body': """
+              <div class="overlay">
+              </div>
+              <div class="fade"></div>
+              """
+
+
+  # HTML Boilerplate
+  # ============================================================
+    'HTML Boilerplate':
+      'prefix': 'html'
+      'body': """
+              <!DOCTYPE html>
+              <html>
+               <head>
+                 <meta charset="utf-8">
+                    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+              		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+                 <title></title>
+               </head>
+               <body>
+
+              <script src="$1"></script>
+              </body>
+              </html>
+                           """
+
+
+              ###############
+              ## Html tags ##
+              ###############
+    'script':
+      'prefix': 'script'
+      'body': """
+              <script src="$1">$2</script>
+              """
+
+    'button':
+      'prefix': 'button'
+      'body': """
+              <button type="button" name="button">${3:Submit}</button>
+              """
+
+    'div':
+      'prefix': 'div'
+      'body': """
+              <div class="$1">
+              	$2
+              </div>
+              """
+
+    'li':
+      'prefix': 'li'
+      'body': """
+              <li class="$1"> $2 </li>
+              """
+
+    'ul':
+      'prefix': 'ul'
+      'body': """
+              <ul class="$1">
+              	$2
+              </ul>
+              """
+
+    'link':
+      'prefix': 'link'
+      'body': '''
+                <link rel="stylesheet" href="/${1:style}.css">
+              '''
+
+    'p':
+      'prefix': 'p'
+      'body': """
+              <p>$1</p>
+              """
+
+################################################################################
+##			  													CSS																			  ##
+################################################################################
+
+  '.source.css':
+    'modal classes':
+      'prefix': 'modal'
+      'body': """
+              /*------------------------------------*\\\\
+                #MODAL OVERLAY
+                #MODAL OVERLAY
+                #MODAL OVERLAY
+                #MODAL OVERLAY
+                #MODAL OVERLAY
+                #MODAL OVERLAY
+                #MODAL OVERLAY
+                #MODAL OVERLAY
+                #MODAL OVERLAY
+              \\\\*------------------------------------*/
+              .overlay {
+                color: black;
+                position: fixed
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                padding: 25px;
+                background-color: #ffffff;
+                background-color: #ffffff;
+                background-color: #ffffff;
+                background-color: #ffffff;
+                background-color: #ffffff;
+                background-color: #ffffff;
+                background-color: #ffffff;
+                background-color: #ffffff;
+                background-color: #ffffff;
+                z-index: 100;
+                overflow: auto;
+                border-radius: 3px;
+                border: 1px solid #C0C3C5;
+                border: 1px solid #C0C3C5;
+                border: 1px solid #C0C3C5;
+                border: 1px solid #C0C3C5;
+                border: 1px solid #C0C3C5;
+                border: 1px solid #C0C3C5;
+                border: 1px solid #C0C3C5;
+                border: 1px solid #C0C3C5;
+              }
+              /*------------------------------------*\\\\
+                #MODAL FADE
+              \\\\*------------------------------------*/
+              .fade {
+                position: fixed;
+                left: 0%;
+                top: 0%;
+                background-color: black;
+                -moz-opacity: 0.7;
+                opacity: .70;
+                filter: alpha(opacity=70);
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+              }
+              """

@@ -1,4 +1,3 @@
-alias f='open -a Finder ./'
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
 
@@ -49,7 +48,7 @@ export CLICOLOR='Yes'
 export LSCOLORS=exfxcxdxHxegedabagacGx
 export PATH="$PATH:`yarn global bin`"
 
-export PS1="\n"$txtred$USER" 🍺  "$txtgrn"\w "'$(
+export PS1="\n"$txtred$USER" "$txtgrn"\w "'$(
 		if [[ $(__git_ps1) =~ \*\)$ ]]; then
 		# a file has been modified but not added
 			echo "'$txtylw'"$(__git_ps1 "(%s)")
@@ -69,6 +68,12 @@ export PS1="\n"$txtred$USER" 🍺  "$txtgrn"\w "'$(
 mkcd () {
   mkdir $1
   cd $1
+}
+
+newdir () {
+  mkdir $1
+  cd $1
+  touch index.html src.js style.css
 }
 
 cdl () {
@@ -109,8 +114,12 @@ alias gs='git status'
 alias ga='git add -A'
 alias gcm='git commit -m'
 alias gp='git push'
-alias gpom="git push origin master"
+alias gpom="git pull origin master"
 
 # Reload .bash_profile
 alias prof="atom ~/.bash_profile"
+alias reprof=". ~/.bash_profile"
+alias pgdb="sudo -u postgres SheaClose"
 alias src="source ~/.bash_profile"
+
+alias snippets="atom /Users/$USER/.atom/snippets.cson"
