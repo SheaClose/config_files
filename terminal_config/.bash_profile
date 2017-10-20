@@ -1,10 +1,5 @@
-eval $(thefuck --alias)
-# You can use whatever you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK)
-alias f='open -a Finder ./'
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
-alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
 
 #################################
 # Colors                        #
@@ -53,7 +48,7 @@ export CLICOLOR='Yes'
 export LSCOLORS=exfxcxdxHxegedabagacGx
 export PATH="$PATH:`yarn global bin`"
 
-export PS1="\n"$txtred$USER" 🍺  "$txtgrn"\w "'$(
+export PS1="\n"$txtred$USER" "$txtgrn"\w "'$(
 		if [[ $(__git_ps1) =~ \*\)$ ]]; then
 		# a file has been modified but not added
 			echo "'$txtylw'"$(__git_ps1 "(%s)")
@@ -127,14 +122,4 @@ alias reprof=". ~/.bash_profile"
 alias pgdb="sudo -u postgres SheaClose"
 alias src="source ~/.bash_profile"
 
-alias karan="cdl ~/devmtn/Mentor/Students/karan"
-alias luckacin="cdl ~/devmtn/Mentor/Students/luckacin"
-alias yi="cdl ~/devmtn/Mentor/Students/yi"
-alias brobbie="cdl ~/devmtn/Mentor/Students/brobbie"
-alias terry="cdl ~/devmtn/Mentor/Students/terry"
-alias garrett = "cdl ~/devmtn/Mentor/Students/garret"
-alias drew = "cdl ~/devmtn/Mentor/Students/drewDisher"
-alias ryan = "cdl ~/devmtn/Mentor/Students/ryanGodwin"
-alias vatekah = "cdl ~/devmtn/Mentor/Students/vatekah"
-
-alias snippets="atom /Users/SheaClose/.atom/snippets.cson"
+alias snippets="atom /Users/$USER/.atom/snippets.cson"
