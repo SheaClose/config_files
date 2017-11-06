@@ -1,0 +1,356 @@
+{
+  "Functional Component": {
+    "prefix": "functional",
+    "body": [
+      "import React from 'react';",
+      "//import './.css';",
+      "",
+      "const $1 = props => {",
+      "    return (",
+      "      <div className=\"\">",
+      "        $1",
+      "      </div>",
+      "    )",
+      "  }",
+      "export default $1"
+    ]
+  },
+  "http.put": {
+    "prefix": "http.put",
+    "body": [
+      "return $http.put('/$1', {}).then(function(response){",
+      "  // console.log(response);",
+      "  return response;",
+      "})"
+    ]
+  },
+  "http.post": {
+    "prefix": "http.post",
+    "body": [
+      "return $http.post('/$1', {}).then(function(response){",
+      "  // console.log(response);",
+      "  return response;",
+      "})"
+    ]
+  },
+  "http.get": {
+    "prefix": "http.get",
+    "body": [
+      "return $http.get('/$1').then(function(response){",
+      "  // console.log(response);",
+      "  return response;",
+      "})"
+    ]
+  },
+  "ngFactory": {
+    "prefix": "ngFactory",
+    "body": [
+      "angular.module('app').factory('$1Factory', function($http){",
+      "  return {",
+      "    test: 'Factory Test'",
+      "  }",
+      "})"
+    ]
+  },
+  "ngComponent": {
+    "prefix": "ngComponent",
+    "body": [
+      "angular.module('app').component('$1Component', {",
+      "  templateUrl: '$2',",
+      "  controller: $3,",
+      "  bindings: {",
+      "    $4",
+      "  }",
+      "});"
+    ]
+  },
+  "ngDirective": {
+    "prefix": "ngDirective",
+    "body": [
+      "angular.module('app').directive('$1Directive', function() {",
+      "  return {",
+      "      template: ''",
+      "    , scope: {",
+      "    }",
+      "    , controller: function($scope){",
+      "    }",
+      "    , link: function(scope, element, attrs) {",
+      "    }",
+      "  }",
+      "})"
+    ]
+  },
+  "ngService": {
+    "prefix": "ngService",
+    "body": [
+      "angular.module('app').service('$1Service', function($http){",
+      "this.test = 'Service Test'",
+      "})"
+    ]
+  },
+  "ngController": {
+    "prefix": "ngController",
+    "body": [
+      "angular.module('app').controller('$1Ctrl', function($scope){",
+      "  $scope.test = 'Get to tha Choppa!'",
+      "})"
+    ]
+  },
+  "uiState": {
+    "prefix": "uiState",
+    "body": [
+      ".state( '$1', {",
+      "    url: '/$2'",
+      "  , templateUrl: `./$3Tmpl.html`",
+      "  , controller : $4Ctrl",
+      "} )"
+    ]
+  },
+  "ngRoute": {
+    "prefix": "ngRoute",
+    "body": [
+      "angular.module('app', ['ui.router'])",
+      ".config( ( $stateProvider, $urlRouterProvider ) => {",
+      "  $urlRouterProvider.otherwise( '/' );",
+      "  $stateProvider",
+      "  .state( '$1', {",
+      "      url: '/$2'",
+      "    , templateUrl: `./$3Tmpl.html`",
+      "    , controller : $4Ctrl",
+      "  } )",
+      "} )"
+    ]
+  },
+  "ngApp": {
+    "prefix": "ngApp",
+    "body": "angular.module('$1', [])"
+  },
+  ".catch": {
+    "prefix": "catch",
+    "body": ["catch((err) => {", " $1", "})"]
+  },
+  "log": {
+    "prefix": "log",
+    "body": "console.log($1)"
+  },
+  "500": {
+    "prefix": "500",
+    "body": "res.status(500).json($1)"
+  },
+  "200": {
+    "prefix": "200",
+    "body": "res.status(200).json($1)"
+  },
+  "db": {
+    "prefix": "db",
+    "body": "const db = req.app.get('db')"
+  },
+  "mapStateToProps": {
+    "prefix": "mapStateToProps",
+    "body": ["function mapStateToProps(state){", "  return state;", "}"]
+  },
+  "connect": {
+    "prefix": "connect",
+    "body": "import { connect } from 'react-redux';"
+  },
+  ".then": {
+    "prefix": "then",
+    "body": [
+      "then((response) => {",
+      "  console.log(response);",
+      "})",
+      ".catch(console.log)"
+    ]
+  },
+  "require": {
+    "prefix": "req",
+    "body": "const $1 = require( '$2' )"
+  },
+  "button": {
+    "prefix": "button",
+    "body": "<button type=\"button\">$1</button>"
+  },
+  "li": {
+    "prefix": "li",
+    "body": "<li>$1</li>"
+  },
+  "ul": {
+    "prefix": "ul",
+    "body": ["<ul>", "  $1", "</ul>"]
+  },
+  "p": {
+    "prefix": "p",
+    "body": "<p>$1</p>"
+  },
+  "textarea": {
+    "prefix": "textarea",
+    "body": "<textarea>$1</textarea>"
+  },
+  "image": {
+    "prefix": "img",
+    "body": "<img src=\"$1\"/>"
+  },
+  "span": {
+    "prefix": "span",
+    "body": "<span>$1</span>"
+  },
+  "input": {
+    "prefix": "input",
+    "body": "<input>$1</input>"
+  },
+  "component": {
+    "prefix": "component",
+    "body": [
+      "import React , { Component } from 'react';",
+      "//import './.css';",
+      " ",
+      "export default class $1 extends Component {",
+      "  constructor(props){",
+      "    super(props)",
+      "    this.state = {",
+      " ",
+      "    }",
+      "  }",
+      "  render(){",
+      "    return (",
+      "      <div className=\"\">",
+      "        $1",
+      "      </div>",
+      "    )",
+      "  }",
+      "}"
+    ]
+  },
+  "h1": {
+    "prefix": "h1",
+    "body": ["<h1>", "$1", " </h1>"]
+  },
+  "nav": {
+    "prefix": "nav",
+    "body": ["<nav>", "$1", " </nav>"]
+  },
+  "div": {
+    "prefix": "div",
+    "body": ["<div className=\"\">", "$1", "</div>"]
+  },
+  "log": {
+    "prefix": "log",
+    "body": "console.log($1)"
+  },
+  "link": {
+    "prefix": "link",
+    "body": "import { Link } from 'react-router-dom';"
+  },
+  "axios": {
+    "prefix": "axios",
+    "body": "import axios from 'axios';"
+  },
+  "import": {
+    "prefix": "import",
+    "body": ["import $1 from './$1';"]
+  },
+  "switch": {
+    "prefix": "switch",
+    "body": ["import {Switch, Route} from 'react-router-dom';"]
+  },
+  "link": {
+    "prefix": "link",
+    "body": [" import {Link} from 'react-router-dom';"]
+  },
+  "browserrouter": {
+    "prefix": "browserrouter",
+    "body": ["import {BrowserRouter as Router} from 'react-router-dom';"]
+  },
+  "react": {
+    "prefix": "react",
+    "body": ["import React from 'react';"]
+  },
+  "Anonymous Function": {
+    "prefix": "anon",
+    "body": ["function($1) {", "return", "}"]
+  },
+  "Arrow Function": {
+    "prefix": "arrow",
+    "body": "( $1 ) => $2"
+  },
+  "Express Server": {
+    "prefix": "express",
+    "body": [
+      "const   express = require('express')",
+      ", cors = require('cors')",
+      ", bodyParser = require('body-parser')",
+      ", port = 3000",
+      ", app = express()",
+      "//, config = require('./config')",
+      "//, session = require('express-session')",
+      "//        , massive = require('massive')",
+      "//        require('dotenv').config()",
+      " ",
+      "// massive(process.env.CONNECTION_STRING).then(dbInstance=>app.set('db', dbInstance)).catch(console.log)",
+      " ",
+      "// app.use(session(config.session) );",
+      "app.use(cors())",
+      "app.use(bodyParser.json())",
+      "app.use('/', express.static(__dirname));",
+      " ",
+      "app.listen(port, function() {",
+      "console.log('Server listening on port', port)",
+      "})",
+      " ",
+      "// yarn add express cors body-parser massive dotenv"
+    ]
+  },
+  "componentWillMount": {
+    "prefix": "cwm",
+    "body": "\ncomponentWillMount() {\n\t$0\n}\n",
+    "description":
+      "Invoked once, both on the client and server, immediately before the initial rendering occurs"
+  },
+
+  "componentDidMount": {
+    "prefix": "cdm",
+    "body": "componentDidMount() {\n\t$0\n}\n",
+    "description":
+      "Invoked once, only on the client (not on the server), immediately after the initial rendering occurs."
+  },
+
+  "componentWillReceiveProps": {
+    "prefix": "cwr",
+    "body": "componentWillReceiveProps(nextProps) {\n\t$0\n}\n",
+    "description":
+      "Invoked when a component is receiving new props. This method is not called for the initial render."
+  },
+
+  "shouldComponentUpdate": {
+    "prefix": "scu",
+    "body": "shouldComponentUpdate(nextProps, nextState) {\n\t$0\n}\n",
+    "description":
+      "Invoked before rendering when new props or state are being received. "
+  },
+
+  "componentWillUpdate": {
+    "prefix": "cwup",
+    "body": "componentWillUpdate(nextProps, nextState) {\n\t$0\n}\n",
+    "description":
+      "Invoked immediately before rendering when new props or state are being received."
+  },
+
+  "componentDidUpdate": {
+    "prefix": "cdup",
+    "body": "componentDidUpdate(prevProps, prevState) {\n\t$0\n}\n",
+    "description":
+      "Invoked immediately after the component's updates are flushed to the DOM."
+  },
+
+  "componentWillUnmount": {
+    "prefix": "cwun",
+    "body": "componentWillUnmount() {\n\t$0\n}\n",
+    "description":
+      "Invoked immediately before a component is unmounted from the DOM."
+  },
+  "bindThis": {
+    "prefix": "bind",
+    "body": "this.$1 = this.$1.bind(this);$0",
+    "description": "Binds the this of a method. To be used inside a constructor"
+  }
+}

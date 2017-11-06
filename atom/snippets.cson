@@ -2,6 +2,43 @@
 ##			  													JSX       															  ##
 ################################################################################
   '.source.jsx, .source.ts':
+
+    'react':
+      'prefix': 'react'
+      'body': """
+      import React from 'react';
+      """
+    'browserrouter':
+      'prefix': 'browserrouter'
+      'body': """
+      import {BrowserRouter as Router} from 'react-router-dom';
+      """
+    'link':
+      'prefix': 'link'
+      'body': """
+      import {Link} from 'react-router-dom';
+      """
+    'switch':
+      'prefix': 'switch'
+      'body': """
+      import {Switch, Route} from 'react-router-dom';
+      """
+    'import':
+      'prefix': 'import'
+      'body': """
+      import $1 from './$1';
+      """
+    'axios':
+      'prefix': 'axios'
+      'body': """
+      import axios from 'axios';
+      """
+
+    'link':
+      'prefix': 'link'
+      'body': """
+      import { Link } from 'react-router-dom';
+      """
     'log':
       'prefix': 'log'
       'body': """
@@ -130,7 +167,11 @@ const $1 = require( "$2" )
 ##			  													JavaScript															  ##
 ################################################################################
   '.source.js':
-
+    'db':
+      'prefix': 'db'
+      'body': """
+              const db = req.app.get('db')
+                           """
     '200':
       'prefix': '200'
       'body': """
@@ -208,10 +249,13 @@ const $1 = require( "$2" )
                				, bodyParser = require('body-parser')
                				, port = 3000
                				, app = express()
-              //				, serverConfig = require("./serverConfig")
+              //				, config = require("./config")
               //				, session = require("express-session")
+              //        , massive = require('massive')
+              //        require('dotenv').config()
 
-              // app.use(session(serverConfig.session) );
+              // massive(process.env.CONNECTION_STRING).then(dbInstance=>app.set('db', dbInstance)).catch(console.log)
+              // app.use(session(config.session) );
               app.use(cors())
               app.use(bodyParser.json())
               app.use("/", express.static(__dirname + '/public'));
@@ -221,6 +265,8 @@ const $1 = require( "$2" )
               app.listen(port, function() {
                 console.log('Server listening on port', port)
               })
+
+              // yarn add express cors body-parser massive dotenv
               """
 
 
