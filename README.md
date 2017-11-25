@@ -21,8 +21,7 @@ repository. Bad A$$ aliases to make your workflow easier.
 Add snippets to your Atom:
 
 ```
-curl -s
-https://raw.githubusercontent.com/SheaClose/config_files/master/atom/snippets.cson > ~/.atom/snippets.cson
+curl -s https://raw.githubusercontent.com/SheaClose/config_files/master/atom/snippets.cson > ~/.atom/snippets.cson
 ```
 
 Add snippets to your VSCode
