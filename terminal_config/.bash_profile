@@ -13,10 +13,6 @@ GIT_PS1_SHOWDIRTYSTATE=true
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=exfxcxdxHxegedabagacGx
-export ANDROID_HOME=/usr/local/Caskroom/android-sdk/25.2.3
-export JAVA_HOME=/Library/Java/Home
-export ANDROID_HOME=/usr/local/Caskroom/android-sdk/25.2.3
-export JAVA_HOME=/Library/Java/Home
 
 export PS1="\n"$txtred$USER" 🍺  "$txtgrn"\w "'$(
 		if [[ $(__git_ps1) =~ \*\)$ ]]; then
@@ -95,7 +91,6 @@ alias gp='git push'
 alias gr='git remote -v'
 alias gpom="git push origin master"
 alias prof="code ~/.bash_profile"
-alias reprof=". ~/.bash_profile"
 alias .="code ."
 alias src="source ~/.bash_profile"
 alias start="yarn start"

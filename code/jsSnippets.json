@@ -1,4 +1,33 @@
 {
+  "catch": {
+    "prefix": "catch",
+    "body": "catch(console.log);"
+  },
+  "propTypes": {
+    "prefix": "proptypes",
+    "body": "import PropTypes from 'prop-types';"
+  },
+  "eslint_ignore_next_line": {
+    "prefix": "eslintIgnoreNext",
+    "body": "// eslint-disable-next-line"
+  },
+  "provider": {
+    "prefix": "provider",
+    "body": [
+      "import { Provider } from \"react-redux\";",
+      "<Provider store={store}>",
+      "</Provider>"
+    ]
+  },
+  "store": {
+    "prefix": "store",
+    "body": [
+      "import { ${1:createStore} } from \"redux\";",
+      "import reducer from \"./reducer\";",
+      "",
+      "export default createStore(reducer);"
+    ]
+  },
   "Functional Component": {
     "prefix": "functional",
     "body": [
@@ -138,7 +167,7 @@
     "body": "res.status(500).json($1)"
   },
   "200": {
-    "prefix": "200",
+    "prefix": "twoHundred",
     "body": "res.status(200).json($1)"
   },
   "db": {
@@ -202,9 +231,9 @@
     "prefix": "component",
     "body": [
       "import React , { Component } from 'react';",
-      "//import './.css';",
+      "//import './$1.css';",
       " ",
-      "export default class $1 extends Component {",
+      "class $1 extends Component {",
       "  constructor(props){",
       "    super(props)",
       "    this.state = {",
@@ -218,7 +247,8 @@
       "      </div>",
       "    )",
       "  }",
-      "}"
+      "}",
+      "export default $1;"
     ]
   },
   "h1": {
@@ -279,7 +309,7 @@
       "const   express = require('express')",
       ", cors = require('cors')",
       ", bodyParser = require('body-parser')",
-      ", port = 3000",
+      ", port = 3001",
       ", app = express()",
       "//, config = require('./config')",
       "//, session = require('express-session')",
