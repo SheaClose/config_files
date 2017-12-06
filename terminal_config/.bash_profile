@@ -58,12 +58,11 @@ gacm (){
 # Git clone, enter directory and immediately live-serve. is "lsq" is provided
 #   as an argument
 gc (){
-  git clone $1 $2
-  cdl $2
-  if [ "$3" = "lsq" ]
-  then
-    live-server index.html
-  fi
+	git clone "$1" && cd "$(basename "$1")"
+	if [ "$2" = "lsq" ]
+	then
+		live-server index.html
+	fi
 }
 
 seturl (){
