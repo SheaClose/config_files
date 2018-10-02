@@ -1,31 +1,3 @@
-source ~/.git-completion.bash
-source ~/.git-prompt.sh
-
-txtred='\[\e[0;31m\]' # Red
-txtgrn='\[\e[0;32m\]' # Green
-txtylw='\[\e[0;33m\]' # Yellow
-txtblu='\[\e[0;34m\]' # Blue
-txtpur='\[\e[0;35m\]' # Purple
-txtcyn='\[\e[0;36m\]' # Cyan
-txtrst='\[\e[0m\]'    # Text Reset
-
-GIT_PS1_SHOWDIRTYSTATE=true
-export LS_OPTIONS='--color=auto'
-export CLICOLOR='Yes'
-export LSCOLORS=exfxcxdxHxegedabagacGx
-
-export PS1="\n"$txtred$USER" 🍺  "$txtgrn"\w "'$(
-		if [[ $(__git_ps1) =~ \*\)$ ]]; then
-		# a file has been modified but not added
-			echo "'$txtylw'"$(__git_ps1 "(%s)")
-		elif [[ $(__git_ps1) =~ \+\)$ ]]; then
-		# a file has been added, but not commited
-			echo "'$txtpur'"$(__git_ps1 "(%s)")
-		# the state is clean, changes are commited
-		else
-			echo "'$txtcyn'"$(__git_ps1 "(%s)")
-		fi)'"\n"$txtblu"=> "$txtrst
-
 #################################
 # Functional Shortcuts          #
 #################################

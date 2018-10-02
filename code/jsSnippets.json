@@ -1,15 +1,36 @@
 {
+  "error": {
+    "prefix": "error",
+    "body": "if (${1:err}) return res.status(500).json(${1:err})"
+  },
+  "status": {
+    "prefix": "status",
+    "body": "res.status($1).json($2)"
+  },
+  "eslintDisableNextLine": {
+    "prefix": "eslintDisableNextLine",
+    "body": "// eslint-disable-next-line"
+  },
+  "eslintDisabletLine": {
+    "prefix": "eslintDisabletLine",
+    "body": "// eslint-disable-line"
+  },
+  "constructor": {
+    "prefix": "constructor",
+    "body": [
+      "constructor(props){",
+      " super(props);",
+      " this.state = {$1};",
+      "}"
+    ]
+  },
   "catch": {
     "prefix": "catch",
-    "body": "catch(console.log);"
+    "body": ".catch(console.log);"
   },
   "propTypes": {
     "prefix": "proptypes",
     "body": "import PropTypes from 'prop-types';"
-  },
-  "eslint_ignore_next_line": {
-    "prefix": "eslintIgnoreNext",
-    "body": "// eslint-disable-next-line"
   },
   "provider": {
     "prefix": "provider",
@@ -44,188 +65,17 @@
       "export default $1"
     ]
   },
-  "http.put": {
-    "prefix": "http.put",
-    "body": [
-      "return $http.put('/$1', {}).then(function(response){",
-      "  // console.log(response);",
-      "  return response;",
-      "})"
-    ]
-  },
-  "http.post": {
-    "prefix": "http.post",
-    "body": [
-      "return $http.post('/$1', {}).then(function(response){",
-      "  // console.log(response);",
-      "  return response;",
-      "})"
-    ]
-  },
-  "http.get": {
-    "prefix": "http.get",
-    "body": [
-      "return $http.get('/$1').then(function(response){",
-      "  // console.log(response);",
-      "  return response;",
-      "})"
-    ]
-  },
-  "ngFactory": {
-    "prefix": "ngFactory",
-    "body": [
-      "angular.module('app').factory('$1Factory', function($http){",
-      "  return {",
-      "    test: 'Factory Test'",
-      "  }",
-      "})"
-    ]
-  },
-  "ngComponent": {
-    "prefix": "ngComponent",
-    "body": [
-      "angular.module('app').component('$1Component', {",
-      "  templateUrl: '$2',",
-      "  controller: $3,",
-      "  bindings: {",
-      "    $4",
-      "  }",
-      "});"
-    ]
-  },
-  "ngDirective": {
-    "prefix": "ngDirective",
-    "body": [
-      "angular.module('app').directive('$1Directive', function() {",
-      "  return {",
-      "      template: ''",
-      "    , scope: {",
-      "    }",
-      "    , controller: function($scope){",
-      "    }",
-      "    , link: function(scope, element, attrs) {",
-      "    }",
-      "  }",
-      "})"
-    ]
-  },
-  "ngService": {
-    "prefix": "ngService",
-    "body": [
-      "angular.module('app').service('$1Service', function($http){",
-      "this.test = 'Service Test'",
-      "})"
-    ]
-  },
-  "ngController": {
-    "prefix": "ngController",
-    "body": [
-      "angular.module('app').controller('$1Ctrl', function($scope){",
-      "  $scope.test = 'Get to tha Choppa!'",
-      "})"
-    ]
-  },
-  "uiState": {
-    "prefix": "uiState",
-    "body": [
-      ".state( '$1', {",
-      "    url: '/$2'",
-      "  , templateUrl: `./$3Tmpl.html`",
-      "  , controller : $4Ctrl",
-      "} )"
-    ]
-  },
-  "ngRoute": {
-    "prefix": "ngRoute",
-    "body": [
-      "angular.module('app', ['ui.router'])",
-      ".config( ( $stateProvider, $urlRouterProvider ) => {",
-      "  $urlRouterProvider.otherwise( '/' );",
-      "  $stateProvider",
-      "  .state( '$1', {",
-      "      url: '/$2'",
-      "    , templateUrl: `./$3Tmpl.html`",
-      "    , controller : $4Ctrl",
-      "  } )",
-      "} )"
-    ]
-  },
-  "ngApp": {
-    "prefix": "ngApp",
-    "body": "angular.module('$1', [])"
-  },
-  ".catch": {
-    "prefix": "catch",
-    "body": ["catch((err) => {", " $1", "})"]
-  },
-  "log": {
-    "prefix": "log",
-    "body": "console.log($1)"
-  },
-  "500": {
-    "prefix": "500",
-    "body": "res.status(500).json($1)"
-  },
-  "200": {
-    "prefix": "twoHundred",
-    "body": "res.status(200).json($1)"
-  },
   "db": {
     "prefix": "db",
     "body": "const db = req.app.get('db')"
-  },
-  "mapStateToProps": {
-    "prefix": "mapStateToProps",
-    "body": ["function mapStateToProps(state){", "  return state;", "}"]
   },
   "connect": {
     "prefix": "connect",
     "body": "import { connect } from 'react-redux';"
   },
-  ".then": {
-    "prefix": "then",
-    "body": [
-      "then((response) => {",
-      "  console.log(response);",
-      "})",
-      ".catch(console.log)"
-    ]
-  },
   "require": {
     "prefix": "req",
     "body": "const $1 = require( '$2' )"
-  },
-  "button": {
-    "prefix": "button",
-    "body": "<button type=\"button\">$1</button>"
-  },
-  "li": {
-    "prefix": "li",
-    "body": "<li>$1</li>"
-  },
-  "ul": {
-    "prefix": "ul",
-    "body": ["<ul>", "  $1", "</ul>"]
-  },
-  "p": {
-    "prefix": "p",
-    "body": "<p>$1</p>"
-  },
-  "textarea": {
-    "prefix": "textarea",
-    "body": "<textarea>$1</textarea>"
-  },
-  "image": {
-    "prefix": "img",
-    "body": "<img src=\"$1\"/>"
-  },
-  "span": {
-    "prefix": "span",
-    "body": "<span>$1</span>"
-  },
-  "input": {
-    "prefix": "input",
-    "body": "<input>$1</input>"
   },
   "component": {
     "prefix": "component",
@@ -243,7 +93,7 @@
       "  render(){",
       "    return (",
       "      <div className=\"\">",
-      "        $1",
+      "        <h1>$1</h1>",
       "      </div>",
       "    )",
       "  }",
@@ -251,33 +101,9 @@
       "export default $1;"
     ]
   },
-  "h1": {
-    "prefix": "h1",
-    "body": ["<h1>", "$1", " </h1>"]
-  },
-  "nav": {
-    "prefix": "nav",
-    "body": ["<nav>", "$1", " </nav>"]
-  },
-  "div": {
-    "prefix": "div",
-    "body": ["<div className=\"\">", "$1", "</div>"]
-  },
-  "log": {
-    "prefix": "log",
-    "body": "console.log($1)"
-  },
-  "link": {
-    "prefix": "link",
-    "body": "import { Link } from 'react-router-dom';"
-  },
   "axios": {
     "prefix": "axios",
     "body": "import axios from 'axios';"
-  },
-  "import": {
-    "prefix": "import",
-    "body": ["import $1 from './$1';"]
   },
   "switch": {
     "prefix": "switch",
@@ -293,15 +119,7 @@
   },
   "react": {
     "prefix": "react",
-    "body": ["import React from 'react';"]
-  },
-  "Anonymous Function": {
-    "prefix": "anon",
-    "body": ["function($1) {", "return", "}"]
-  },
-  "Arrow Function": {
-    "prefix": "arrow",
-    "body": "( $1 ) => $2"
+    "body": "import React from 'react';"
   },
   "Express Server": {
     "prefix": "express",
@@ -311,76 +129,121 @@
       ", bodyParser = require('body-parser')",
       ", port = 3001",
       ", app = express()",
-      "//, config = require('./config')",
-      "//, session = require('express-session')",
-      "//        , massive = require('massive')",
-      "//        require('dotenv').config()",
+      "//, massive = require('massive')",
+      "//require('dotenv').config()",
       " ",
       "// massive(process.env.CONNECTION_STRING).then(dbInstance=>app.set('db', dbInstance)).catch(console.log)",
       " ",
-      "// app.use(session(config.session) );",
       "app.use(cors())",
       "app.use(bodyParser.json())",
-      "app.use('/', express.static(__dirname));",
       " ",
-      "app.listen(port, function() {",
+      "app.listen(port, () => {",
       "console.log('Server listening on port', port)",
       "})",
       " ",
-      "// yarn add express cors body-parser massive dotenv"
+      "// npm i express cors body-parser massive dotenv"
     ]
   },
-  "componentWillMount": {
-    "prefix": "cwm",
-    "body": "\ncomponentWillMount() {\n\t$0\n}\n",
-    "description":
-      "Invoked once, both on the client and server, immediately before the initial rendering occurs"
-  },
-
   "componentDidMount": {
     "prefix": "cdm",
     "body": "componentDidMount() {\n\t$0\n}\n",
-    "description":
-      "Invoked once, only on the client (not on the server), immediately after the initial rendering occurs."
+    "description": "Invoked once, only on the client (not on the server), immediately after the initial rendering occurs."
   },
-
-  "componentWillReceiveProps": {
-    "prefix": "cwr",
-    "body": "componentWillReceiveProps(nextProps) {\n\t$0\n}\n",
-    "description":
-      "Invoked when a component is receiving new props. This method is not called for the initial render."
+  "getDerivedStateFromProps": {
+    "prefix": "gds",
+    "body": "static getDerivedStateFromProps(nextProps, prevState){$1}"
   },
-
   "shouldComponentUpdate": {
     "prefix": "scu",
     "body": "shouldComponentUpdate(nextProps, nextState) {\n\t$0\n}\n",
-    "description":
-      "Invoked before rendering when new props or state are being received. "
+    "description": "Invoked before rendering when new props or state are being received. "
   },
-
-  "componentWillUpdate": {
-    "prefix": "cwup",
-    "body": "componentWillUpdate(nextProps, nextState) {\n\t$0\n}\n",
-    "description":
-      "Invoked immediately before rendering when new props or state are being received."
-  },
-
   "componentDidUpdate": {
     "prefix": "cdup",
     "body": "componentDidUpdate(prevProps, prevState) {\n\t$0\n}\n",
-    "description":
-      "Invoked immediately after the component's updates are flushed to the DOM."
+    "description": "Invoked immediately after the component's updates are flushed to the DOM."
   },
-
   "componentWillUnmount": {
     "prefix": "cwun",
     "body": "componentWillUnmount() {\n\t$0\n}\n",
-    "description":
-      "Invoked immediately before a component is unmounted from the DOM."
+    "description": "Invoked immediately before a component is unmounted from the DOM."
   },
   "bindThis": {
     "prefix": "bind",
     "body": "this.$1 = this.$1.bind(this);$0",
     "description": "Binds the this of a method. To be used inside a constructor"
+  },
+  "expressWithPassport": {
+    "prefix": "passport",
+    "body": [
+      "require(\"dotenv\").config();",
+      "const {",
+      "SECRET: secret,",
+      "DOMAIN: domain,",
+      "CLIENT_ID: clientID,",
+      "CLIENT_SECRET: clientSecret",
+      "} = process.env;",
+      "const express = require(\"express\");",
+      "const session = require(\"express-session\");",
+      "const passport = require(\"passport\");",
+      "const AuthStratgy = require(\"passport-auth0\");",
+      "const app = express();",
+      "const port = process.env.PORT || 3001;",
+      "app.use(",
+      "session({",
+      "secret,",
+      "resave: true,",
+      "saveUninitialized: false",
+      "})",
+      ");",
+      "/** initialize passport/have it use sessions, connect with strategy */",
+      "app.use(passport.initialize());",
+      "app.use(passport.session());",
+      "passport.use(",
+      "new AuthStratgy(",
+      "{",
+      "domain,",
+      "clientID,",
+      "clientSecret,",
+      "callbackURL: \"/login\", // Potential breaking point.",
+      "scope: \"openid email profile\"",
+      "},",
+      "(accessToken, refreshToken, extraParams, profile, done) => {",
+      "return done(null, profile);",
+      "}",
+      ")",
+      ");",
+      "",
+      "/** time to  */",
+      "passport.serializeUser((user, done) => {",
+      "return done(null, user);",
+      "});",
+      "",
+      "passport.deserializeUser((user, done) => {",
+      "return done(null, user);",
+      "});",
+      "",
+      "app.get(",
+      "\"/login\",",
+      "passport.authenticate(\"auth0\", {",
+      "successRedirect: \"/auth\",",
+      "failureRedirect: \"/fail\",",
+      "failureFlash: true",
+      "}),",
+      "(...rest) => console.log(\"rest: \", rest)",
+      ");",
+      "app.get(\"/auth\", (req, res) => {",
+      "res.status(200).json(req.user);",
+      "});",
+      "app.get(\"/fail\", (req, res) => {",
+      "res.status(200).json(\"not logged in\");",
+      "});",
+      "",
+      "app.listen(port, () => {",
+      "console.log(`Server listening on port ${port}`);",
+      "});",
+      "",
+      "// npm i express express-session passport passport-auth0"
+    ]
   }
 }
