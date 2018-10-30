@@ -8,7 +8,7 @@ Much support from Joe as well. (https://github.com/joseph-tohdjojo)
    required permissions.
 
 ```
-curl -s https://raw.githubusercontent.com/SheaClose/config_files/master/terminal_config/.bash_profile > ~/.bash_profile && curl -s https://raw.githubusercontent.com/SheaClose/config_files/master/terminal_config/git-completion.bash > ~/.git-completion.bash && curl -s https://raw.githubusercontent.com/SheaClose/config_files/master/terminal_config/git-prompt.sh > ~/.git-prompt.sh && sudo chmod 755 ~/.git-completion.bash ~/.git-prompt.sh && source ~/.bash_profile
+cp ~/.bash_profile ~/.bash_profile.copy && curl -s https://raw.githubusercontent.com/SheaClose/config_files/master/terminal_config/.bash_profile > ~/.bash_profile && curl -s https://raw.githubusercontent.com/SheaClose/config_files/master/terminal_config/git-completion.bash > ~/.git-completion.bash && curl -s https://raw.githubusercontent.com/SheaClose/config_files/master/terminal_config/git-prompt.sh > ~/.git-prompt.sh && sudo chmod 755 ~/.git-completion.bash ~/.git-prompt.sh && source ~/.bash_profile
 ```
 
 1. If you are a Windows user, you can paste in the following:
