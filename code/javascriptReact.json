@@ -1,0 +1,573 @@
+
+{
+  "error": {
+    "prefix": "error",
+    "body": "if (${1:err}) return res.status(500).json(${1:err})"
+  },
+  "status": {
+    "prefix": "status",
+    "body": "res.status($1).json($2)"
+  },
+  "eslintDisableNextLine": {
+    "prefix": "eslintDisableNextLine",
+    "body": "// eslint-disable-next-line"
+  },
+  "eslintDisabletLine": {
+    "prefix": "eslintDisabletLine",
+    "body": "// eslint-disable-line"
+  },
+  "constructor": {
+    "prefix": "constructor",
+    "body": [
+      "constructor(props){",
+      " super(props);",
+      " this.state = {$1};",
+      "}"
+    ]
+  },
+  "catch": {
+    "prefix": "catch",
+    "body": ".catch(console.log);"
+  },
+  "propTypes": {
+    "prefix": "proptypes",
+    "body": "import PropTypes from 'prop-types';"
+  },
+  "provider": {
+    "prefix": "provider",
+    "body": [
+      "import { Provider } from \"react-redux\";",
+      "<Provider store={store}>",
+      "</Provider>"
+    ]
+  },
+  "store": {
+    "prefix": "store",
+    "body": [
+      "import { ${1:createStore} } from \"redux\";",
+      "import reducer from \"./reducer\";",
+      "",
+      "export default createStore(reducer);"
+    ]
+  },
+  "Functional Component": {
+    "prefix": "functional",
+    "body": [
+      "import React from 'react';",
+      "//import './.css';",
+      "",
+      "const $1 = props => {",
+      "    return (",
+      "      <div className=\"\">",
+      "        $1",
+      "      </div>",
+      "    )",
+      "  }",
+      "export default $1"
+    ]
+  },
+  "db": {
+    "prefix": "db",
+    "body": "const db = req.app.get('db')"
+  },
+  "connect": {
+    "prefix": "connect",
+    "body": "import { connect } from 'react-redux';"
+  },
+  "require": {
+    "prefix": "req",
+    "body": "const $1 = require( '$2' )"
+  },
+  "component": {
+    "prefix": "class",
+    "body": [
+      "import React , { Component } from 'react';",
+      "//import './$1.css';",
+      " ",
+      "class $1 extends Component {",
+      "  constructor(props){",
+      "    super(props)",
+      "    this.state = {",
+      " ",
+      "    }",
+      "  }",
+      "  render(){",
+      "    return (",
+      "      <div className=\"\">",
+      "        <h1>$1</h1>",
+      "      </div>",
+      "    )",
+      "  }",
+      "}",
+      "export default $1;"
+    ]
+  },
+  "axios": {
+    "prefix": "axios",
+    "body": "import axios from 'axios';"
+  },
+  "switch": {
+    "prefix": "switch",
+    "body": [
+      "import {Switch, Route} from 'react-router-dom';"
+    ]
+  },
+  "link": {
+    "prefix": "link",
+    "body": [
+      " import {Link} from 'react-router-dom';"
+    ]
+  },
+  "browserrouter": {
+    "prefix": "browserrouter",
+    "body": [
+      "import {BrowserRouter as Router} from 'react-router-dom';"
+    ]
+  },
+  "react": {
+    "prefix": "react",
+    "body": "import React from 'react';"
+  },
+  "Express Server": {
+    "prefix": "express",
+    "body": [
+      "const   express = require('express')",
+      ", cors = require('cors')",
+      ", bodyParser = require('body-parser')",
+      ", port = 3001",
+      ", app = express()",
+      "//, massive = require('massive')",
+      "//require('dotenv').config()",
+      " ",
+      "// massive(process.env.CONNECTION_STRING).then(dbInstance=>app.set('db', dbInstance)).catch(console.log)",
+      " ",
+      "app.use(cors())",
+      "app.use(bodyParser.json())",
+      " ",
+      "app.listen(port, () => {",
+      "console.log('Server listening on port', port)",
+      "})",
+      " ",
+      "// yarn add express cors body-parser massive dotenv"
+    ]
+  },
+  "componentDidMount": {
+    "prefix": "cdm",
+    "body": "componentDidMount() {\n\t$0\n}\n",
+    "description": "Invoked once, only on the client (not on the server), immediately after the initial rendering occurs."
+  },
+  "getDerivedStateFromProps": {
+    "prefix": "gds",
+    "body": "static getDerivedStateFromProps(nextProps, prevState){$1}"
+  },
+  "shouldComponentUpdate": {
+    "prefix": "scu",
+    "body": "shouldComponentUpdate(nextProps, nextState) {\n\t$0\n}\n",
+    "description": "Invoked before rendering when new props or state are being received. "
+  },
+  "componentDidUpdate": {
+    "prefix": "cdup",
+    "body": "componentDidUpdate(prevProps, prevState) {\n\t$0\n}\n",
+    "description": "Invoked immediately after the component's updates are flushed to the DOM."
+  },
+  "componentWillUnmount": {
+    "prefix": "cwun",
+    "body": "componentWillUnmount() {\n\t$0\n}\n",
+    "description": "Invoked immediately before a component is unmounted from the DOM."
+  },
+  "bindThis": {
+    "prefix": "bind",
+    "body": "this.$1 = this.$1.bind(this);$0",
+    "description": "Binds the this of a method. To be used inside a constructor"
+  },
+  "expressWithPassport": {
+    "prefix": "passport",
+    "body": [
+      "require(\"dotenv\").config();",
+      "const express = require(\"express\"),",
+      "  cors = require(\"cors\"),",
+      "  bodyParser = require(\"body-parser\"),",
+      "  port = 3001,",
+      "  app = express(),",
+      "  massive = require(\"massive\"),",
+      "  session = require(\"express-session\"),",
+      "  {",
+      "    DOMAIN: domain,",
+      "    CLIENT_ID: clientID,",
+      "    CLIENT_SECRET: clientSecret,",
+      "    CONNECTION_STRING: connectionString,",
+      "    SESSION_SECRET: secret",
+      "  } = process.env,",
+      "  passport = require(\"passport\"),",
+      "  AuthStratgy = require(\"passport-auth0\");",
+      "",
+      "massive(connectionString)",
+      ".then(dbInstance => app.set(\"db\", dbInstance))",
+      ".catch(console.log);",
+      "",
+      "app.use(cors());",
+      "app.use(bodyParser.json());",
+      "app.use(",
+      "  session({",
+      "    secret,",
+      "    saveUninitialized: true,",
+      "    resave: true,",
+      "    cookie: {",
+      "      maxAge: 1000 * 60 * 60 * 24 * 52",
+      "    }",
+      "  })",
+      ");",
+      "",
+      "/** Initialize passport */",
+      "app.use(passport.initialize());",
+      "",
+      "/** Connect passport to express session. This must come AFTER session as been initialized */",
+      "app.use(passport.session());",
+      "",
+      "/** Set up Auth Strategy, callback url will be where a successful login will be directed",
+      " * with the users information. Scope defines what information the user will be asked to",
+      " * approve on sign-up.",
+      " */",
+      "passport.use(",
+      "  new AuthStratgy(",
+      "    {",
+      "      domain,",
+      "      clientID,",
+      "      clientSecret,",
+      "      callbackURL: \"/login\", // original",
+      "      scope: \"openid email profile\"",
+      "    },",
+      "    (_, __, ___, profile, done) => done(null, profile)",
+      "  )",
+      ");",
+      "",
+      "/** Serialize user determines what profile information is being stored to passport session",
+      " * you may receive a large profile object, it is better store only what you need.",
+      " */",
+      "passport.serializeUser((user, done) => {",
+      "  return done(null, user);",
+      "});",
+      "",
+      "/**",
+      " * Deserialize user takes the user and stores it on the req.user object, you could also modify",
+      " * the user session before storing to req.user.",
+      " */",
+      "passport.deserializeUser((user, done) => {",
+      "  return done(null, user);",
+      "});",
+      "",
+      "/** /login is the redirect from the front end. Simply run passport.authenticate */",
+      "app.get(",
+      "  \"/login\",",
+      "  passport.authenticate(\"auth0\", {",
+      "    successRedirect: \"/success\",",
+      "    failureRedirect: \"/login\"",
+      "  })",
+      ");",
+      "",
+      "/** If this endpoint has been hit, we have succeeded in logging in, we have access",
+      " * to the user's profile information on req.user. Here is where we will save to DB if we need",
+      " * then redirect to the front end when done",
+      " */",
+      "app.get(\"/success\", (req, res) => {",
+      "  console.log(\"req.user: \", req.user);",
+      "  res.redirect(\"/\");",
+      "});",
+      "",
+      "/** Because we cannot send AJAX info during the login, we create a seperate end point",
+      " * to verify user is authorized.",
+      " */",
+      "app.get(\"/api/user\", (req, res) => {",
+      "  if (req.user) res.status(200).json(req.user);",
+      "  else res.status(500).json(\"User Not logged in\");",
+      "});",
+      "",
+      "app.listen(port, () => {",
+      "  console.log(\"Server listening on port\", port);",
+      "});",
+      "// ${1:npm i dotenv express cors body-parser massive express-session passport passport-auth0 axios react-router-dom react-redux}",
+      ""
+    ],
+    "description": "expressWithPassport"
+  },
+  "authCtrl": {
+    "prefix": "authCtrl",
+    "body": [
+      "let {",
+      "  DOMAIN: domain,",
+      "  CLIENT_ID: clientID,",
+      "  CLIENT_SECRET: clientSecret",
+      "} = process.env;",
+      "const passport = require(\"passport\");",
+      "const AuthStratgy = require(\"passport-auth0\");",
+      "",
+      "module.exports = app => {",
+      "  /** Initialize passport */",
+      "  app.use(passport.initialize());",
+      "",
+      "  /** Connect passport to express session. This must come AFTER session as been initialized */",
+      "  app.use(passport.session());",
+      "",
+      "  /** Set up Auth Strategy, callback url will be where a successful login will be directed",
+      "   * with the users information. Scope defines what information the user will be asked to",
+      "   * approve on sign-up.",
+      "   */",
+      "  passport.use(",
+      "    new AuthStratgy(",
+      "      {",
+      "        domain,",
+      "        clientID,",
+      "        clientSecret,",
+      "        callbackURL: \"/login\", // original",
+      "        scope: \"openid email profile\"",
+      "      },",
+      "      (_, __, ___, profile, done) => done(null, profile)",
+      "    )",
+      "  );",
+      "",
+      "  /** Serialize user determines what profile information is being stored to passport session",
+      "   * you may receive a large profile object, it is better store only what you need.",
+      "   */",
+      "  passport.serializeUser((user, done) => {",
+      "    return done(null, user);",
+      "  });",
+      "",
+      "  /**",
+      "   * Deserialize user takes the user and stores it on the req.user object, you could also modify",
+      "   * the user session before storing to req.user.",
+      "   */",
+      "  passport.deserializeUser((user, done) => {",
+      "    return done(null, user);",
+      "  });",
+      "",
+      "  /** /login is the redirect from the front end. Simply run passport.authenticate */",
+      "  app.get(",
+      "    \"/login\",",
+      "    passport.authenticate(\"auth0\", {",
+      "      successRedirect: \"/success\",",
+      "      failureRedirect: \"/login\"",
+      "    })",
+      "  );",
+      "",
+      "  /** If this endpoint has been hit, we have succeeded in logging in, we have access",
+      "   * to the user's profile information on req.user. Here is where we will save to DB if we need",
+      "   * then redirect to the front end when done",
+      "   */",
+      "  app.get(\"/success\", (req, res) => {",
+      "    res.redirect(\"/\");",
+      "  });",
+      "",
+      "  /** Because we cannot send AJAX info during the login, we create a seperate end point",
+      "   * to verify user is authorized.",
+      "   */",
+      "  app.get(\"/api/user\", (req, res) => {",
+      "    if (req.user) res.status(200).json(req.user);",
+      "    else res.status(500).json(\"User Not logged in\");",
+      "  });",
+      "};",
+      "",
+      "// ${1:npm i passport passport-auth0}",
+      ""
+    ],
+    "description": "authCtrl"
+  },
+  "Vuex": {
+    "prefix": "vuex",
+    "body": [
+      "import Vue from 'vue';",
+      "import Vuex from 'vuex';",
+      "",
+      "Vue.use(Vuex);",
+      "",
+      "export default new Vuex.Store({",
+      "  state:{},",
+      "  mutations:{},",
+      "  actions:{}",
+      "})"
+    ],
+    "description": "Vuex"
+  },
+  "eslint_ignore_next_line": {
+    "prefix": "eslintIgnoreNext",
+    "body": "// eslint-disable-next-line"
+  },
+  "http.put": {
+    "prefix": "http.put",
+    "body": [
+      "return $http.put('/$1', {}).then(function(response){",
+      "  // console.log(response);",
+      "  return response;",
+      "})"
+    ]
+  },
+  "http.post": {
+    "prefix": "http.post",
+    "body": [
+      "return $http.post('/$1', {}).then(function(response){",
+      "  // console.log(response);",
+      "  return response;",
+      "})"
+    ]
+  },
+  "http.get": {
+    "prefix": "http.get",
+    "body": [
+      "return $http.get('/$1').then(function(response){",
+      "  // console.log(response);",
+      "  return response;",
+      "})"
+    ]
+  },
+  "ngFactory": {
+    "prefix": "ngFactory",
+    "body": [
+      "angular.module('app').factory('$1Factory', function($http){",
+      "  return {",
+      "    test: 'Factory Test'",
+      "  }",
+      "})"
+    ]
+  },
+  "ngComponent": {
+    "prefix": "ngComponent",
+    "body": [
+      "angular.module('app').component('$1Component', {",
+      "  templateUrl: '$2',",
+      "  controller: $3,",
+      "  bindings: {",
+      "    $4",
+      "  }",
+      "});"
+    ]
+  },
+  "ngDirective": {
+    "prefix": "ngDirective",
+    "body": [
+      "angular.module('app').directive('$1Directive', function() {",
+      "  return {",
+      "      template: ''",
+      "    , scope: {",
+      "    }",
+      "    , controller: function($scope){",
+      "    }",
+      "    , link: function(scope, element, attrs) {",
+      "    }",
+      "  }",
+      "})"
+    ]
+  },
+  "ngService": {
+    "prefix": "ngService",
+    "body": [
+      "angular.module('app').service('$1Service', function($http){",
+      "this.test = 'Service Test'",
+      "})"
+    ]
+  },
+  "ngController": {
+    "prefix": "ngController",
+    "body": [
+      "angular.module('app').controller('$1Ctrl', function($scope){",
+      "  $scope.test = 'Get to tha Choppa!'",
+      "})"
+    ]
+  },
+  "uiState": {
+    "prefix": "uiState",
+    "body": [
+      ".state( '$1', {",
+      "    url: '/$2'",
+      "  , templateUrl: `./$3Tmpl.html`",
+      "  , controller : $4Ctrl",
+      "} )"
+    ]
+  },
+  "ngRoute": {
+    "prefix": "ngRoute",
+    "body": [
+      "angular.module('app', ['ui.router'])",
+      ".config( ( $stateProvider, $urlRouterProvider ) => {",
+      "  $urlRouterProvider.otherwise( '/' );",
+      "  $stateProvider",
+      "  .state( '$1', {",
+      "      url: '/$2'",
+      "    , templateUrl: `./$3Tmpl.html`",
+      "    , controller : $4Ctrl",
+      "  } )",
+      "} )"
+    ]
+  },
+  "ngApp": {
+    "prefix": "ngApp",
+    "body": "angular.module('$1', [])"
+  },
+  ".catch": {
+    "prefix": "catch",
+    "body": [
+      "catch((err) => {",
+      " $1",
+      "})"
+    ]
+  },
+  "log": {
+    "prefix": "log",
+    "body": "console.log($1)"
+  },
+  "500": {
+    "prefix": "500",
+    "body": "res.status(500).json($1)"
+  },
+  "200": {
+    "prefix": "twoHundred",
+    "body": "res.status(200).json($1)"
+  },
+  "import": {
+    "prefix": "import",
+    "body": [
+      "import $1 from './$1';"
+    ]
+  },
+  "Anonymous Function": {
+    "prefix": "anon",
+    "body": [
+      "function($1) {",
+      "return",
+      "}"
+    ]
+  },
+  "Arrow Function": {
+    "prefix": "arrow",
+    "body": "( $1 ) => $2"
+  },
+  "componentWillMount": {
+    "prefix": "cwm",
+    "body": "\ncomponentWillMount() {\n\t$0\n}\n",
+    "description": "Invoked once, both on the client and server, immediately before the initial rendering occurs"
+  },
+  "componentWillReceiveProps": {
+    "prefix": "cwr",
+    "body": "componentWillReceiveProps(nextProps) {\n\t$0\n}\n",
+    "description": "Invoked when a component is receiving new props. This method is not called for the initial render."
+  },
+  "componentWillUpdate": {
+    "prefix": "cwup",
+    "body": "componentWillUpdate(nextProps, nextState) {\n\t$0\n}\n",
+    "description": "Invoked immediately before rendering when new props or state are being received."
+  },
+  "tryCatch": {
+    "prefix": "tryCatch",
+    "body": [
+      "try {",
+      "  $2",
+      "} catch (errror) {",
+      "  console.warn('errror: ', errror);",
+      "  ${1:errorHandler}(error)",
+      "}"
+    ],
+    "description": "Invoked immediately before rendering when new props or state are being received."
+  },
+  "loggerinfo": {
+    "prefix": "loggerInfo",
+    "body": "logger.info($1)"
+  }
+}
