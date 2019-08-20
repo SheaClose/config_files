@@ -1,0 +1,34 @@
+{
+	"Vue Component": {
+		"prefix": "vc",
+		"body": [
+			"<template>",
+			"  <div>",
+			"    <h1>${1:View Name}</h1>",
+			"    <hr />",
+			"  </div>",
+			"</template>",
+			"",
+			"<script>",
+			"export default {",
+			"  data(){",
+			"    return {",
+			"      $2",
+			"    }",
+			"  },",
+			"  methods(){},",
+			"  computed(){},",
+			"  created(){},",
+			"  mounted(){},",
+			"  updated(){},",
+			"",
+			"}",
+			"</script>",
+			"",
+			"<style scoped>",
+			"</style>",
+			""
+		],
+		"description": ""
+	}
+}
