@@ -7,9 +7,14 @@ addurl (){
 }
 
 gacm (){
-  git add -A
-  echo git commit -m "$1"
-  git commit -m "$1"
+  message=""
+  for x in $*
+  do
+    message+="$x "
+  done
+  message="$(echo $message | sed -e 's/[[:space:]]*$//')"
+  echo $message
+  git commit -am "${message}"
 }
 
 nodeman (){
@@ -49,19 +54,10 @@ trash(){
   mv $1 ~/.Trash 
 }
 
-car(){
-  echo 'cleaning gradlefile'
-  cd /Users/sheaclose/eventology/mobile/android
-  ./gradlew clean
-  cd /Users/sheaclose/eventology/mobile
-  debugger
+mobileStart() {
+  open ios/Fanguru.xcworkspace/;
+  npx react-native start;
 }
-
-debugger(){
-  open "rndebugger://set-debugger-loc?host=localhost&port=8081"
-  npm run android
-}
-
 # gpb(){
 #   git push origin $(git name-rev --name-only HEAD)
 #   git checkout dev
@@ -88,6 +84,16 @@ gpc(){
   echo            "****************************************"
   git push origin $(git branch | grep \* | cut -d ' ' -f2)
 }
+# git push to whatever branch you are currently on.
+# replaces `git push origin master/dev/feature_branch`
+gpcf(){
+  RED='\033[0;31m'
+  NC='\033[0m' # No Color
+  printf "You're about to ${RED}FORCE push${NC} to ${RED}$(git branch | grep \* | cut -d ' ' -f2),${NC} are you ${RED}SURE?!${NC}\n"
+  echo 'Press [enter] to continue, ctrl-c to exit'
+  read answer
+  git push origin $(git branch | grep \* | cut -d ' ' -f2) --force
+}
 # git pulls whatever branch you are currently on
 # replaces `git push origin master/dev/feature_branch`
 gpoc(){
@@ -98,17 +104,45 @@ gpoc(){
 }
 
 deploy(){
-  start=$(git branch | grep \* | cut -d ' ' -f2)
-  echo 'Type branches you want to include [Enter: current-branch]'
-  read branches
-  if [ -z $branches ]; then branches=$start; fi;
-  for branch in $branches; 
-    do echo $branch; 
-    git checkout $branch;
-    git merge $start
-    gacm 'testing auto-deploy'
-    gpc
-  done
+  gacm 'testing auto-deploy'
+  start=$(git symbolic-ref --short -q HEAD)
+  if [ -z $1 ]; then 
+    echo 'Type branches you want to include [Enter: current-branch]'
+    read branches
+    if [ -z $branches ]; then exit 1; fi;
+    for branch in $branches; 
+      do echo $branch; 
+      git checkout -B $branch;
+      gpc
+    done
+  else
+    for branch in "$@"; 
+      do echo $branch; 
+      git checkout -B $branch;
+      gpc
+    done
+  fi;
+  git checkout $start;
+}
+deployForce(){
+  gacm 'testing auto-deploy'
+  start=$(git symbolic-ref --short -q HEAD)
+  if [ -z $1 ]; then 
+    echo 'Type branches you want to include [Enter: current-branch]'
+    read branches
+    if [ -z $branches ]; then exit 1; fi;
+    for branch in $branches; 
+      do echo $branch; 
+      git checkout -B $branch;
+      git push origin $branch --force
+    done
+  else
+    for branch in "$@"; 
+      do echo $branch; 
+      git checkout -B $branch;
+      git push origin $branch --force
+    done
+  fi;
   git checkout $start;
 }
 
@@ -151,14 +185,6 @@ dkill(){
   docker image rm $process_to_kill
 }
 
-# ebdeploy(){
-#   echo "Type the name of the env to deploy:"
-#   read env
-#   echo "Type the name of the region to deploy [default: us-east-1]"
-#   read region
-#   if [ -z $region ]; then region=us-east-1; fi;
-#   eb deploy $env -r $region --label $(echo $(date) | sed 's/ //g')
-# }
 ebdeploy(){
   echo "Type the name of the Application"
   read app
@@ -215,4 +241,52 @@ iosstart(){
   pod install
   cd ..
   open ios/Fanguru.xcworkspace
+}
+
+mkfile() { 
+  mkdir -p "$(dirname "$1")";
+  touch "$1" ;  
+}
+
+
+dexec(){
+  d exec -it $(d ps -q) /bin/bash
+}
+
+cherryPick() {
+  echo "Enter the commit SHA";
+  read sha;
+  git cherry-pick $sha;
+}
+
+killprocess () {
+  if [ -z $1 ]; then 
+    echo "Type the port of the Application";
+    read port;
+  else
+    port=$1;
+  fi;
+  lsof -ti :$port | xargs kill;
+}
+
+gchb () {
+  node /usr/local/bin/test.js "$*"
+}
+
+services() {
+  for x in $(seq 4000 4010)
+  do
+    API_OR_WORKER=worker ENV_BRANCH=dev NODE_ENV=development S3_CONFIG_PATH=s3://cm-services/api/dev SERVICES=MediaQueue WORKER=true PORT=$x nodemon &
+    # lsof -i :$x
+  done
+}
+
+env() {
+  if [[ $1 = "prod" ]]; then
+    echo "Downloading prod env file";
+    aws s3 cp s3://cm-services/api/live ./ --recursive
+  else 
+    echo "Downloading dev env file";
+    aws s3 cp s3://cm-services/api/dev ./ --recursive
+  fi;
 }
