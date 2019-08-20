@@ -1,0 +1,249 @@
+{
+  "error": {
+    "prefix": "error",
+    "body": "if (${1:err}) return res.status(500).json(${1:err})"
+  },
+  "status": {
+    "prefix": "status",
+    "body": "res.status($1).json($2)"
+  },
+  "eslintDisableNextLine": {
+    "prefix": "eslintDisableNextLine",
+    "body": "// eslint-disable-next-line"
+  },
+  "eslintDisabletLine": {
+    "prefix": "eslintDisabletLine",
+    "body": "// eslint-disable-line"
+  },
+  "constructor": {
+    "prefix": "constructor",
+    "body": [
+      "constructor(props){",
+      " super(props);",
+      " this.state = {$1};",
+      "}"
+    ]
+  },
+  "catch": {
+    "prefix": "catch",
+    "body": ".catch(console.log);"
+  },
+  "propTypes": {
+    "prefix": "proptypes",
+    "body": "import PropTypes from 'prop-types';"
+  },
+  "provider": {
+    "prefix": "provider",
+    "body": [
+      "import { Provider } from \"react-redux\";",
+      "<Provider store={store}>",
+      "</Provider>"
+    ]
+  },
+  "store": {
+    "prefix": "store",
+    "body": [
+      "import { ${1:createStore} } from \"redux\";",
+      "import reducer from \"./reducer\";",
+      "",
+      "export default createStore(reducer);"
+    ]
+  },
+  "Functional Component": {
+    "prefix": "functional",
+    "body": [
+      "import React from 'react';",
+      "//import './.css';",
+      "",
+      "const $1 = props => {",
+      "    return (",
+      "      <div className=\"\">",
+      "        $1",
+      "      </div>",
+      "    )",
+      "  }",
+      "export default $1"
+    ]
+  },
+  "db": {
+    "prefix": "db",
+    "body": "const db = req.app.get('db')"
+  },
+  "connect": {
+    "prefix": "connect",
+    "body": "import { connect } from 'react-redux';"
+  },
+  "require": {
+    "prefix": "req",
+    "body": "const $1 = require( '$2' )"
+  },
+  "component": {
+    "prefix": "component",
+    "body": [
+      "import React , { Component } from 'react';",
+      "//import './$1.css';",
+      " ",
+      "class $1 extends Component {",
+      "  constructor(props){",
+      "    super(props)",
+      "    this.state = {",
+      " ",
+      "    }",
+      "  }",
+      "  render(){",
+      "    return (",
+      "      <div className=\"\">",
+      "        <h1>$1</h1>",
+      "      </div>",
+      "    )",
+      "  }",
+      "}",
+      "export default $1;"
+    ]
+  },
+  "axios": {
+    "prefix": "axios",
+    "body": "import axios from 'axios';"
+  },
+  "switch": {
+    "prefix": "switch",
+    "body": ["import {Switch, Route} from 'react-router-dom';"]
+  },
+  "link": {
+    "prefix": "link",
+    "body": [" import {Link} from 'react-router-dom';"]
+  },
+  "browserrouter": {
+    "prefix": "browserrouter",
+    "body": ["import {BrowserRouter as Router} from 'react-router-dom';"]
+  },
+  "react": {
+    "prefix": "react",
+    "body": "import React from 'react';"
+  },
+  "Express Server": {
+    "prefix": "express",
+    "body": [
+      "const   express = require('express')",
+      ", cors = require('cors')",
+      ", bodyParser = require('body-parser')",
+      ", port = 3001",
+      ", app = express()",
+      "//, massive = require('massive')",
+      "//require('dotenv').config()",
+      " ",
+      "// massive(process.env.CONNECTION_STRING).then(dbInstance=>app.set('db', dbInstance)).catch(console.log)",
+      " ",
+      "app.use(cors())",
+      "app.use(bodyParser.json())",
+      " ",
+      "app.listen(port, () => {",
+      "console.log('Server listening on port', port)",
+      "})",
+      " ",
+      "// yarn add express cors body-parser massive dotenv"
+    ]
+  },
+  "componentDidMount": {
+    "prefix": "cdm",
+    "body": "componentDidMount() {\n\t$0\n}\n",
+    "description": "Invoked once, only on the client (not on the server), immediately after the initial rendering occurs."
+  },
+  "getDerivedStateFromProps": {
+    "prefix": "gds",
+    "body": "static getDerivedStateFromProps(nextProps, prevState){$1}"
+  },
+  "shouldComponentUpdate": {
+    "prefix": "scu",
+    "body": "shouldComponentUpdate(nextProps, nextState) {\n\t$0\n}\n",
+    "description": "Invoked before rendering when new props or state are being received. "
+  },
+  "componentDidUpdate": {
+    "prefix": "cdup",
+    "body": "componentDidUpdate(prevProps, prevState) {\n\t$0\n}\n",
+    "description": "Invoked immediately after the component's updates are flushed to the DOM."
+  },
+  "componentWillUnmount": {
+    "prefix": "cwun",
+    "body": "componentWillUnmount() {\n\t$0\n}\n",
+    "description": "Invoked immediately before a component is unmounted from the DOM."
+  },
+  "bindThis": {
+    "prefix": "bind",
+    "body": "this.$1 = this.$1.bind(this);$0",
+    "description": "Binds the this of a method. To be used inside a constructor"
+  },
+  "expressWithPassport": {
+    "prefix": "passport",
+    "body": [
+      "require(\"dotenv\").config();",
+      "const {",
+      "SECRET: secret,",
+      "DOMAIN: domain,",
+      "CLIENT_ID: clientID,",
+      "CLIENT_SECRET: clientSecret",
+      "} = process.env;",
+      "const express = require(\"express\");",
+      "const session = require(\"express-session\");",
+      "const passport = require(\"passport\");",
+      "const AuthStratgy = require(\"passport-auth0\");",
+      "const app = express();",
+      "const port = process.env.PORT || 3001;",
+      "app.use(",
+      "session({",
+      "secret,",
+      "resave: true,",
+      "saveUninitialized: false",
+      "})",
+      ");",
+      "/** initialize passport/have it use sessions, connect with strategy */",
+      "app.use(passport.initialize());",
+      "app.use(passport.session());",
+      "passport.use(",
+      "new AuthStratgy(",
+      "{",
+      "domain,",
+      "clientID,",
+      "clientSecret,",
+      "callbackURL: \"/login\", // Potential breaking point.",
+      "scope: \"openid email profile\"",
+      "},",
+      "(accessToken, refreshToken, extraParams, profile, done) => {",
+      "return done(null, profile);",
+      "}",
+      ")",
+      ");",
+      "",
+      "/** time to  */",
+      "passport.serializeUser((user, done) => {",
+      "return done(null, user);",
+      "});",
+      "",
+      "passport.deserializeUser((user, done) => {",
+      "return done(null, user);",
+      "});",
+      "",
+      "app.get(",
+      "\"/login\",",
+      "passport.authenticate(\"auth0\", {",
+      "successRedirect: \"/auth\",",
+      "failureRedirect: \"/fail\",",
+      "failureFlash: true",
+      "}),",
+      "(...rest) => console.log(\"rest: \", rest)",
+      ");",
+      "app.get(\"/auth\", (req, res) => {",
+      "res.status(200).json(req.user);",
+      "});",
+      "app.get(\"/fail\", (req, res) => {",
+      "res.status(200).json(\"not logged in\");",
+      "});",
+      "",
+      "app.listen(port, () => {",
+      "console.log(`Server listening on port ${port}`);",
+      "});",
+      "",
+      "// npm i express express-session passport passport-auth0"
+    ]
+  }
+}
